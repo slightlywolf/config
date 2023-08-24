@@ -35,85 +35,85 @@ vim.keymap.set({'n', 'v'}, '<leader>Y', '"*Y', { desc = "[Y]ank" })
 vim.keymap.set({'n', 'v'}, '<leader>P', '"+P', { desc = "[P]aste" })
 vim.keymap.set({'n', 'v'}, '<leader>P', '"*P', { desc = "[P]aste" })
 
-----------------------------------------------------------------------------------------
--- telescope keymaps
-----------------------------------------------------------------------------------------
 
-    keys = {
-      { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-      { "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-      { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
-      -- find
-      { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
-      { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
-      { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>fR", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
-      -- git
-      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
-      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
-      -- search
-      { '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
-      { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
-      { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
-      { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
-      { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
-      { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-      { "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
-      { "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
-      { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
-      { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
-      { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
-      { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
-      { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-      { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-      { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
-      { "<leader>sw", Util.telescope("grep_string", { word_match = "-w" }), desc = "Word (root dir)" },
-      { "<leader>sW", Util.telescope("grep_string", { cwd = false, word_match = "-w" }), desc = "Word (cwd)" },
-      { "<leader>sw", Util.telescope("grep_string"), mode = "v", desc = "Selection (root dir)" },
-      { "<leader>sW", Util.telescope("grep_string", { cwd = false }), mode = "v", desc = "Selection (cwd)" },
-      { "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
-      {
-        "<leader>ss",
-        Util.telescope("lsp_document_symbols", {
-          symbols = {
-            "Class",
-            "Function",
-            "Method",
-            "Constructor",
-            "Interface",
-            "Module",
-            "Struct",
-            "Trait",
-            "Field",
-            "Property",
-          },
-        }),
-        desc = "Goto Symbol",
-      },
-      {
-        "<leader>sS",
-        Util.telescope("lsp_dynamic_workspace_symbols", {
-          symbols = {
-            "Class",
-            "Function",
-            "Method",
-            "Constructor",
-            "Interface",
-            "Module",
-            "Struct",
-            "Trait",
-            "Field",
-            "Property",
-          },
-        }),
-        desc = "Goto Symbol (Workspace)",
-      },
-    }
+local keys = {
+	{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
+	{ "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+	{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+	{ "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
+	
+	-- find
+	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+	{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
+	{ "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+	{ "<leader>fR", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
+	-- git
+	{ "<leader>Gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+	{ "<leader>Gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+	-- search
+	{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
+	{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+	{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+	{ "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+	{ "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+	{ "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
+	{ "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
+	{ "<leader>sg", Util.telescope("live_grep"), desc = "Grep (root dir)" },
+	{ "<leader>sG", Util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
+	{ "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
+	{ "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
+	{ "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
+	{ "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+	{ "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
+	{ "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+	{ "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
+	{ "<leader>sw", Util.telescope("grep_string", { word_match = "-w" }), desc = "Word (root dir)" },
+	{ "<leader>sW", Util.telescope("grep_string", { cwd = false, word_match = "-w" }), desc = "Word (cwd)" },
+	{ "<leader>sw", Util.telescope("grep_string"), mode = "v", desc = "Selection (root dir)" },
+	{ "<leader>sW", Util.telescope("grep_string", { cwd = false }), mode = "v", desc = "Selection (cwd)" },
+	{ "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+	{
+		"<leader>ss",
+		Util.telescope("lsp_document_symbols", {
+			symbols = {
+				"Class",
+				"Function",
+				"Method",
+				"Constructor",
+				"Interface",
+				"Module",
+				"Struct",
+				"Trait",
+				"Field",
+				"Property",
+			},
+		}),
+		desc = "Goto Symbol",
+	},
+	{
+		"<leader>sS",
+		Util.telescope("lsp_dynamic_workspace_symbols", {
+			symbols = {
+				"Class",
+				"Function",
+				"Method",
+				"Constructor",
+				"Interface",
+				"Module",
+				"Struct",
+				"Trait",
+				"Field",
+				"Property",
+			},
+		}),
+		desc = "Goto Symbol (Workspace)",
+	},
+}
 
-
+for _, key in ipairs(keys) do
+  vim.keymap.set('n', key[1], key[2], { desc = key["desc"] })
+end
 
 
 -- vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
@@ -128,11 +128,11 @@ vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { d
 vim.keymap.set('n', '<leader>te', require('telescope.builtin').diagnostics, { desc = '[e] Telescope List errors' })
 
 vim.keymap.set('n', '<leader>/', function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-    })
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+		winblend = 10,
+		previewer = false,
+	})
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 ----------------------------------------------------------------------------------------
@@ -183,10 +183,9 @@ map("v", ">", ">gv")
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- toggle options
-	if vim.lsp.inlay_hint then
-  map("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
+if vim.lsp.inlay_hint then
+	map("n", "<leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle Inlay Hints" })
 end
-
 
 -- Terminal Mappings
 map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })

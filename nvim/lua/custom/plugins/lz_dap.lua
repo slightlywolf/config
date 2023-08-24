@@ -56,9 +56,10 @@ return
       opts = {},
     },
 
-    -- which key integration
+    --which key integration
     {
       "folke/which-key.nvim",
+      event = "VeryLazy",
       optional = true,
         init = function()
           vim.o.timeout = true

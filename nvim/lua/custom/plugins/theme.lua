@@ -1,20 +1,13 @@
-return{
-  -- {
-  --   'aditya-azad/candle-grey',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'darkblue'
-  --     -- vim.cmd("highlight Cursor guifg=white guibg=red")
-  --   end
-  -- },
-  -- {
-  --   'embark-theme/vim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'embark'
-  --   end
-  -- }
+return {
+	{ "kartikp10/noctis.nvim", },
+	{ "bignimbus/pop-punk.vim", },
+	{ "tpope/vim-vividchalk" },
+	{ "nanotech/jellybeans.vim" },
+
+	{ 'aditya-azad/candle-grey', },
+	{ 'embark-theme/vim', },
 	{'daviddavis/vim-colorpack' },
+
 	{ "EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
@@ -57,7 +50,7 @@ return{
 						-- ...
 					},
 				},
-				palettes = {},
+			palettes = {},
 				specs = {},
 				groups = {},
 			})
@@ -66,29 +59,26 @@ return{
 	},
 
 	{
-	"daschw/leaf.nvim",
+		"daschw/leaf.nvim",
 		enabled = false,
 		priority = 1000,
 		config = function()
 
-		require("leaf").setup({
-			underlineStyle = "undercurl",
-			commentStyle = "italic",
-			functionStyle = "italic",
-			keywordStyle = "italic",
-			statementStyle = "bold",
-			typeStyle = "NONE",
-			variablebuiltinStyle = "italic",
-			transparent = false,
-			colors = {},
-			overrides = {},
-			theme = "light", -- default, based on vim.o.background, alternatives: "light", "dark"
-			contrast = "high", -- default, alternatives: "medium", "high"
-		})
-		vim.cmd.colorscheme 'leaf'
-
+			require("leaf").setup({
+				underlineStyle = "undercurl",
+				commentStyle = "italic",
+				functionStyle = "italic",
+				keywordStyle = "italic",
+				statementStyle = "bold",
+				typeStyle = "NONE",
+				variablebuiltinStyle = "italic",
+				transparent = false,
+				colors = {},
+				overrides = {},
+				theme = "light", -- default, based on vim.o.background, alternatives: "light", "dark"
+				contrast = "high", -- default, alternatives: "medium", "high"
+			})
 		end,
-
 	}
 
 }
