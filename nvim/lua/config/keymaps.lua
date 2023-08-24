@@ -150,8 +150,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- scrolling up and down the page should be centred
-vim.keymap.set('n', '<C-u>', "<C-u>zz", { silent = true })
-vim.keymap.set('n', '<C-d>', "<C-d>zz", { silent = true })
+vim.keymap.set('n', '<C-u>', math.floor(vim.fn.winheight(0) * 1 / 3) .. "<C-u>zz", { silent = true })
+vim.keymap.set('n', '<C-d>', math.floor(vim.fn.winheight(0) * 1 / 3) .. "<C-d>zz", { silent = true })
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
