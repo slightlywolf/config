@@ -1,0 +1,277 @@
+FUNCTION  codeium#server#Request()
+    Defined: ~\AppData\Local\nvim-data\lazy\codeium.vim\autoload\codeium\server.vim:64
+Called 4 times
+Total time:   0.058254
+ Self time:   0.058254
+
+count  total (s)   self (s)
+    4              0.000031   if s:server_port is# v:null
+                                throw 'Server port has not been properly initialized.'
+    4              0.000005   endif
+    4              0.000055   let uri = 'http://localhost:' . s:server_port . '/exa.language_server_pb.LanguageServerService/' . a:type
+    4              0.000069   let data = json_encode(a:data)
+    4              0.000021   let args = [ 'curl', uri, '--header', 'Content-Type: application/json', '-d@-' ]
+    4              0.000011   let result = {'out': []}
+    4              0.000054   let ExitCallback = a:0 && !empty(a:1) ? a:1 : function('s:NoopCallback')
+    4              0.000066   if has('nvim')
+    4              0.057076     let jobid = jobstart(args, { 'on_stdout': { channel, data, t -> add(result.out, join(data, "\n")) }, 'on_exit': { job, status, t -> ExitCallback(result.out, status) }, })
+    4              0.000081     call chansend(jobid, data)
+    4              0.000595     call chanclose(jobid, 'stdin')
+    4              0.000024     return jobid
+                              else
+                                let job = job_start(args, { 'in_mode': 'raw', 'out_mode': 'raw', 'out_cb': { channel, data -> add(result.out, data) }, 'exit_cb': { job, status -> s:OnExit(result, status, ExitCallback) }, 'close_cb': { channel -> s:OnClose(result, ExitCallback) } })
+                                let channel = job_getchannel(job)
+                                call ch_sendraw(channel, data)
+                                call ch_close_in(channel)
+                                return job
+                              endif
+
+FUNCTION  <SNR>42_Remove_Matches()
+    Defined: C:\Program Files\Neovim\share\nvim\runtime/plugin/matchparen.vim:197
+Called 310 times
+Total time:   0.007893
+ Self time:   0.007893
+
+count  total (s)   self (s)
+  310              0.003866   if exists('w:paren_hl_on') && w:paren_hl_on
+    2              0.000020     silent! call matchdelete(3)
+    2              0.000012     let w:paren_hl_on = 0
+  310              0.000501   endif
+
+FUNCTION  codeium#command#ApiKey()
+    Defined: ~\AppData\Local\nvim-data\lazy\codeium.vim\autoload\codeium\command.vim:166
+Called 4 times
+Total time:   0.000065
+ Self time:   0.000065
+
+count  total (s)   self (s)
+    4              0.000030   if s:api_key == ''
+                                echom 'Codeium: No API key found; maybe you need to run `:Codeium Auth`?'
+    4              0.000003   endif
+    4              0.000008   return s:api_key
+
+FUNCTION  <SNR>63_SendHeartbeat()
+    Defined: ~\AppData\Local\nvim-data\lazy\codeium.vim\autoload\codeium\server.vim:114
+Called 4 times
+Total time:   0.058697
+ Self time:   0.000260
+
+count  total (s)   self (s)
+    4              0.000034   try
+    4   0.058600   0.000162     call codeium#server#Request('Heartbeat', {'metadata': codeium#server#RequestMetadata()})
+                              catch
+                                call codeium#log#Exception()
+    4              0.000009   endtry
+
+FUNCTION  codeium#server#RequestMetadata()
+    Defined: ~\AppData\Local\nvim-data\lazy\codeium.vim\autoload\codeium\server.vim:54
+Called 4 times
+Total time:   0.000183
+ Self time:   0.000119
+
+count  total (s)   self (s)
+    4   0.000174   0.000109   return { 'api_key': codeium#command#ApiKey(), 'ide_name':  s:ide, 'ide_version':  s:ide_version, 'extension_name': 'vim', 'extension_version':  s:language_server_version, }
+
+FUNCTION  <SNR>63_NoopCallback()
+    Defined: ~\AppData\Local\nvim-data\lazy\codeium.vim\autoload\codeium\server.vim:51
+Called 4 times
+Total time:   0.000009
+ Self time:   0.000009
+
+count  total (s)   self (s)
+
+FUNCTION  <SNR>42_Highlight_Matching_Pair()
+    Defined: C:\Program Files\Neovim\share\nvim\runtime/plugin/matchparen.vim:39
+Called 310 times
+Total time:   0.066877
+ Self time:   0.058983
+
+count  total (s)   self (s)
+                              " Remove any previous match.
+  310   0.012457   0.004564   call s:Remove_Matches()
+                            
+                              " Avoid that we remove the popup menu.
+                              " Return when there are no colors (looks like the cursor jumps).
+  310              0.003213   if pumvisible() || (&t_Co < 8 && !has("gui_running"))
+                                return
+  310              0.000271   endif
+                            
+                              " Get the character under the cursor and check if it's in 'matchpairs'.
+  310              0.002116   let c_lnum = line('.')
+  310              0.001545   let c_col = col('.')
+  310              0.000691   let before = 0
+                            
+  310              0.001793   let text = getline(c_lnum)
+  310              0.010992   let matches = matchlist(text, '\(.\)\=\%'.c_col.'c\(.\=\)')
+  310              0.001593   if empty(matches)
+                                let [c_before, c] = ['', '']
+  310              0.000418   else
+  310              0.002524     let [c_before, c] = matches[1:2]
+  310              0.000361   endif
+  310              0.008487   let plist = split(&matchpairs, '.\zs[:,]')
+  310              0.002055   let i = index(plist, c)
+  310              0.000714   if i < 0
+                                " not found, in Insert mode try character before the cursor
+  307              0.001860     if c_col > 1 && (mode() == 'i' || mode() == 'R')
+                                  let before = strlen(c_before)
+                                  let c = c_before
+                                  let i = index(plist, c)
+  307              0.000311     endif
+  307              0.000545     if i < 0
+                                  " not found, nothing to do
+  307              0.000533       return
+                                endif
+    3              0.000001   endif
+                            
+                              " Figure out the arguments for searchpairpos().
+    3              0.000005   if i % 2 == 0
+                                let s_flags = 'nW'
+                                let c2 = plist[i + 1]
+    3              0.000002   else
+    3              0.000006     let s_flags = 'nbW'
+    3              0.000005     let c2 = c
+    3              0.000009     let c = plist[i - 1]
+    3              0.000002   endif
+    3              0.000006   if c == '['
+                                let c = '\['
+                                let c2 = '\]'
+    3              0.000002   endif
+                            
+                              " Find the match.  When it was just before the cursor move it there for a
+                              " moment.
+    3              0.000005   if before > 0
+                                let has_getcurpos = exists("*getcurpos")
+                                if has_getcurpos
+                                  " getcurpos() is more efficient but doesn't exist before 7.4.313.
+                                  let save_cursor = getcurpos()
+                                else
+                                  let save_cursor = winsaveview()
+                                endif
+                                call cursor(c_lnum, c_col - before)
+    3              0.000002   endif
+                            
+    3              0.000059   if !has("syntax") || !exists("g:syntax_on")
+                                let s_skip = "0"
+    3              0.000002   else
+                                " Build an expression that detects whether the current cursor position is
+                                " in certain syntax types (string, comment, etc.), for use as
+                                " searchpairpos()'s skip argument.
+                                " We match "escape" for special items, such as lispEscapeSpecial, and
+                                " match "symbol" for lispBarSymbol.
+    3              0.000021     let s_skip = 'synstack(".", col("."))' . '->indexof({_, id -> synIDattr(id, "name") =~? ' . '"string\\|character\\|singlequote\\|escape\\|symbol\\|comment"}) >= 0'
+                                " If executing the expression determines that the cursor is currently in
+                                " one of the syntax types, then we want searchpairpos() to find the pair
+                                " within those syntax types (i.e., not skip).  Otherwise, the cursor is
+                                " outside of the syntax types and s_skip should keep its value so we skip
+                                " any matching pair inside the syntax types.
+                                " Catch if this throws E363: pattern uses more memory than 'maxmempattern'.
+    3              0.000003     try
+    3              0.000097       execute 'if ' . s_skip . ' | let s_skip = "0" | endif'
+                                catch /^Vim\%((\a\+)\)\=:E363/
+                                  " We won't find anything, so skip searching, should keep Vim responsive.
+                                  return
+    3              0.000003     endtry
+    3              0.000002   endif
+                            
+                              " Limit the search to lines visible in the window.
+    3              0.000013   let stoplinebottom = line('w$')
+    3              0.000009   let stoplinetop = line('w0')
+    3              0.000005   if i % 2 == 0
+                                let stopline = stoplinebottom
+    3              0.000002   else
+    3              0.000010     let stopline = stoplinetop
+    3              0.000002   endif
+                            
+                              " Limit the search time to 300 msec to avoid a hang on very long lines.
+                              " This fails when a timeout is not supported.
+    3              0.000012   if mode() == 'i' || mode() == 'R'
+                                let timeout = exists("b:matchparen_insert_timeout") ? b:matchparen_insert_timeout : g:matchparen_insert_timeout
+    3              0.000002   else
+    3              0.000019     let timeout = exists("b:matchparen_timeout") ? b:matchparen_timeout : g:matchparen_timeout
+    3              0.000001   endif
+    3              0.000003   try
+    3              0.003691     let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline, timeout)
+                              catch /E118/
+                                " Can't use the timeout, restrict the stopline a bit more to avoid taking
+                                " a long time on closed folds and long lines.
+                                " The "viewable" variables give a range in which we can scroll while
+                                " keeping the cursor at the same position.
+                                " adjustedScrolloff accounts for very large numbers of scrolloff.
+                                let adjustedScrolloff = min([&scrolloff, (line('w$') - line('w0')) / 2])
+                                let bottom_viewable = min([line('$'), c_lnum + &lines - adjustedScrolloff - 2])
+                                let top_viewable = max([1, c_lnum-&lines+adjustedScrolloff + 2])
+                                " one of these stoplines will be adjusted below, but the current values are
+                                " minimal boundaries within the current window
+                                if i % 2 == 0
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = min([line2byte("$"), line2byte(".") + col(".") + &smc * 2])
+                            	let stopline = min([bottom_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = min([bottom_viewable, c_lnum + 100])
+                                  endif
+                                  let stoplinebottom = stopline
+                                else
+                                  if has("byte_offset") && has("syntax_items") && &smc > 0
+                            	let stopbyte = max([1, line2byte(".") + col(".") - &smc * 2])
+                            	let stopline = max([top_viewable, byte2line(stopbyte)])
+                                  else
+                            	let stopline = max([top_viewable, c_lnum - 100])
+                                  endif
+                                  let stoplinetop = stopline
+                                endif
+                                let [m_lnum, m_col] = searchpairpos(c, '', c2, s_flags, s_skip, stopline)
+    3              0.000005   endtry
+                            
+    3              0.000006   if before > 0
+                                if has_getcurpos
+                                  call setpos('.', save_cursor)
+                                else
+                                  call winrestview(save_cursor)
+                                endif
+    3              0.000002   endif
+                            
+                              " If a match is found setup match highlighting.
+    3              0.000016   if m_lnum > 0 && m_lnum >= stoplinetop && m_lnum <= stoplinebottom 
+    2              0.000016     if exists('*matchaddpos')
+    2              0.000037       call matchaddpos('MatchParen', [[c_lnum, c_col - before], [m_lnum, m_col]], 10, 3)
+                                else
+                                  exe '3match MatchParen /\(\%' . c_lnum . 'l\%' . (c_col - before) . 'c\)\|\(\%' . m_lnum . 'l\%' . m_col . 'c\)/'
+    2              0.000002     endif
+    2              0.000010     let w:paren_hl_on = 1
+    3              0.000002   endif
+
+FUNCTION  <SNR>15_try()
+    Defined: ~/AppData/Local/nvim-data/lazy/indent-blankline.nvim/plugin/indent_blankline.vim:7
+Called 84 times
+Total time:   0.032673
+ Self time:   0.032673
+
+count  total (s)   self (s)
+   84              0.000239     try
+   84              0.031382         execute a:cmd
+                                catch /E12/
+                                    return
+   84              0.000179     endtry
+
+FUNCTIONS SORTED ON TOTAL TIME
+count  total (s)   self (s)  function
+  310   0.066877   0.058983  <SNR>42_Highlight_Matching_Pair()
+    4   0.058697   0.000260  <SNR>63_SendHeartbeat()
+    4   0.058254             codeium#server#Request()
+   84   0.032673             <SNR>15_try()
+  310   0.007893             <SNR>42_Remove_Matches()
+    4   0.000183   0.000119  codeium#server#RequestMetadata()
+    4   0.000065             codeium#command#ApiKey()
+    4   0.000009             <SNR>63_NoopCallback()
+
+FUNCTIONS SORTED ON SELF TIME
+count  total (s)   self (s)  function
+  310   0.066877   0.058983  <SNR>42_Highlight_Matching_Pair()
+    4              0.058254  codeium#server#Request()
+   84              0.032673  <SNR>15_try()
+  310              0.007893  <SNR>42_Remove_Matches()
+    4   0.058697   0.000260  <SNR>63_SendHeartbeat()
+    4   0.000183   0.000119  codeium#server#RequestMetadata()
+    4              0.000065  codeium#command#ApiKey()
+    4              0.000009  <SNR>63_NoopCallback()
+
