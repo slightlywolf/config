@@ -4,7 +4,7 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.cmd.colorscheme 'dw_yellow'
+vim.cmd.colorscheme 'carbonfox'
 
 vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
 
