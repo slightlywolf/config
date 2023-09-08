@@ -1,5 +1,12 @@
 return {
-	{ "kartikp10/noctis.nvim", },
+	{ 
+		"kartikp10/noctis.nvim", 
+		dependencies = 
+		{
+			-- Automatically install LSPs to stdpath for neovim
+			'rktjmp/lush.nvim',
+		}
+	},
 	{ "bignimbus/pop-punk.vim", },
 	{ "tpope/vim-vividchalk" },
 	{ "nanotech/jellybeans.vim" },

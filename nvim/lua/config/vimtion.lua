@@ -4,26 +4,40 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
-vim.cmd.colorscheme 'carbonfox'
+-- function! GetColorSchemes()
+--    return uniq(sort(map(
+--    \  globpath(&runtimepath, "colors/*.vim", 0, 1),  
+--    \  'fnamemodify(v:val, ":t:r")'
+--    \)))
+-- endfunction
+--
+
+math.randomseed(os.time())
+
+local my_colors = vim.fn.getcompletion("","color")
+local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
+
+vim.print(rand_scheme)
+vim.cmd.colorscheme (rand_scheme)
 
 vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
 
-vim.cmd "hi! TermCursor guifg=NONE guibg=#FFFFFF gui=NONE cterm=NONE"
-vim.cmd "hi! TermCursorNC guifg=NONE guibg=#FFFFFF gui=NONE cterm=NONE"
+vim.cmd "hi! TermCursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
+vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
-vim.cmd "hi! Cursor guifg=NONE guibg=#FFFFFF gui=NONE cterm=NONE"
-vim.cmd "hi! CursorNC guifg=#FFFFFF guibg=#FFFFFF gui=NONE cterm=NONE"
+vim.cmd "hi! Cursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
+vim.cmd "hi! CursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
 --
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 vim.o.wrap = false
 vim.o.cursorline = false
 
 -- set the nvim guifont
 --vim.opt.guifont = { "GohuFont 14 Nerd Font:h10"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
-vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h13"}
+vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h10"}
 -- vim.opt.guifont = { "Hurmit Nerd Font:h16"}
 
 -- Make line numbers default
