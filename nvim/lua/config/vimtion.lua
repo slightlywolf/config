@@ -17,7 +17,7 @@ math.randomseed(os.time())
 local my_colors = vim.fn.getcompletion("","color")
 local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
 
-vim.print(rand_scheme)
+-- vim.print(rand_scheme)
 vim.cmd.colorscheme (rand_scheme)
 
 vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
