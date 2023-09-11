@@ -2,6 +2,18 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("nathanvim_" .. name, { clear = true })
 end
 
+
+-- chose a random color on buff open
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+  group = augroup("fileopen"),
+  callback = function()
+	local my_colors = vim.fn.getcompletion("","color")
+	local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
+	vim.cmd.colorscheme (rand_scheme)
+  end,
+})
+
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
