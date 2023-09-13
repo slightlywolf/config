@@ -1,12 +1,12 @@
 ----------------------------------------------------------------------------------------
--- VIM OPTIONS 
+-- VIM OPTIONS
 ----------------------------------------------------------------------------------------
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
 -- function! GetColorSchemes()
 --    return uniq(sort(map(
---    \  globpath(&runtimepath, "colors/*.vim", 0, 1),  
+--    \  globpath(&runtimepath, "colors/*.vim", 0, 1),
 --    \  'fnamemodify(v:val, ":t:r")'
 --    \)))
 -- endfunction
@@ -27,6 +27,7 @@ vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
 vim.cmd "hi! Cursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! CursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
+
 
 --
 -- Set highlight on search
@@ -59,7 +60,7 @@ vim.o.ttimeoutlen = 10
 
 -- Enable break indent
 vim.o.breakindent = true
-vim.keymap.set({'n', 'v'}, '<leader>I', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
+vim.keymap.set({'n', 'v'}, '<leader>fI', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
 
 -- make the cursor a block
 vim.o.guicursor = 'n-v-c-i:block-Cursor'

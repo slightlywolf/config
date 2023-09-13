@@ -41,7 +41,7 @@ local keys = {
 	{ "<leader>/", Util.telescope("live_grep"), desc = "Grep (root dir)" },
 	{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
 	{ "<leader><space>", Util.telescope("files"), desc = "Find Files (root dir)" },
-	
+
 	-- find
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 	{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
@@ -208,5 +208,46 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 
+-- various editing macros
+-- insert current filename
+map (
+	{'n'},
+	'<leader>if',
+	function ()
+		vim.cmd(" put =expand('%:t') ")
+	end ,
+	{
+		desc = "insert [f]ilename"
+	}
+)
+
+map (
+	{'n'},
+	'<leader>iF',
+	function ()
+		vim.cmd("put =expand('%:p')")
+	end ,
+	{ desc = "insert full path" }
+)
+
+map(
+	{'n'},
+	'<leader>iW',
+	function()
+		vim.cmd('%s/\\s\\+$//e')
+	end,
+	{ desc = "remove trailing whitespace" }
+)
 
 
+map (
+	{'n'},
+	'<leader>R',
+	function()
+		local my_colors = vim.fn.getcompletion("","color")
+		local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
+
+		vim.cmd.colorscheme (rand_scheme)
+	end,
+	{ desc = "Random colorscheme" }
+)
