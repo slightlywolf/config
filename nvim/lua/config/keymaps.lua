@@ -214,7 +214,8 @@ map (
 	{'n'},
 	'<leader>if',
 	function ()
-		vim.cmd(" put =expand('%:t') ")
+		vim.cmd("let @q=expand('%:t')")
+		vim.cmd('normal "qp')
 	end ,
 	{
 		desc = "insert [f]ilename"
@@ -225,7 +226,8 @@ map (
 	{'n'},
 	'<leader>iF',
 	function ()
-		vim.cmd("put =expand('%:p')")
+		vim.cmd("let @q=expand('%:p')")
+		vim.cmd('normal "qp')
 	end ,
 	{ desc = "insert full path" }
 )
@@ -240,6 +242,7 @@ map(
 )
 
 
+-- random color scheme
 map (
 	{'n'},
 	'<leader>R',
@@ -250,4 +253,15 @@ map (
 		vim.cmd.colorscheme (rand_scheme)
 	end,
 	{ desc = "Random colorscheme" }
+)
+
+-- current date
+map (
+	{'n'},
+	'<leader>id',
+	function()
+		vim.cmd('let @q=strftime("%d-%m-%Y")')
+		vim.cmd('normal "qp')
+	end,
+	{ desc = "Current date dd-mm-yyyy" }
 )
