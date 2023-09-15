@@ -51,6 +51,22 @@ local keys = {
 	-- git
 	{ "<leader>Gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
 	{ "<leader>Gs", "<cmd>Telescope git_status<CR>", desc = "status" },
+	{
+		"<leader>GT",
+		function()
+			if vim.o.signcolumn == 'yes' or vim.o.signcolumn == 'auto' then
+				vim.o.signcolumn = 'number'
+				vim.print("Signcolumn: number")
+			elseif vim.o.signcolumn == 'no' then
+				vim.o.signcolumn = 'yes'
+				vim.print("Signcolumn: yes")
+			elseif vim.o.signcolumn == 'number' then
+				vim.o.signcolumn = 'no'
+				vim.print("Signcolumn: no")
+			end
+		end,
+		desc = "Toggle Signcolumn / Git column (No, Yes, Number)"
+	},
 	-- search
 	{ '<leader>s"', "<cmd>Telescope registers<cr>", desc = "Registers" },
 	{ "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
