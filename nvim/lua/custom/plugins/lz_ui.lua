@@ -14,7 +14,7 @@ return {
     --   end
     -- end,
   },
-	
+
   -- Active indent guide and indent text objects. When you're browsing
   -- code, this highlights the current level of indentation, and animates
   -- the highlighting.
@@ -96,7 +96,27 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
   { "rcarriga/nvim-notify" },
 
-	
+
   -- ui components
   { "MunifTanjim/nui.nvim", lazy = true },
+
+  -- basically nerd tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    init = function()
+      require("nvim-tree").setup({
+        sort_by = "case_sensitive",
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = false,
+        },
+      })
+    end,
+    lazy = true
+  }
 }
