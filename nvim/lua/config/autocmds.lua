@@ -1,3 +1,6 @@
+require("helpers.funcs")
+
+
 local function augroup(name)
   return vim.api.nvim_create_augroup("nathanvim_" .. name, { clear = true })
 end
@@ -7,9 +10,7 @@ end
 vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = augroup("fileopen"),
   callback = function()
-	local my_colors = vim.fn.getcompletion("","color")
-	local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
-	vim.cmd.colorscheme (rand_scheme)
+	C_set_random_colorscheme(C_all_filter)
   end,
 })
 

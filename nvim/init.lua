@@ -114,5 +114,6 @@ require("config.autocmds")
 require("config.keymaps")
 require("config.vimtion")
 require("util.init")
+require("helpers.funcs")
 
 

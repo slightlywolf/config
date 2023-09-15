@@ -2,3 +2,12 @@
 
 * potpourii-contrast
 
+* duskfox
+
+* azure-contrast
+
+* jumper-contrast
+
+* banner-contrast
+
+* legacy-contrast

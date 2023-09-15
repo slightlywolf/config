@@ -1,4 +1,4 @@
-
+require("helpers.funcs")
 local Util = require("util.init")
 
 ----------------------------------------------------------------------------------------
@@ -263,12 +263,19 @@ map (
 	{'n'},
 	'<leader>R',
 	function()
-		local my_colors = vim.fn.getcompletion("","color")
-		local rand_scheme = my_colors[math.ceil(#my_colors * math.random())]
-
-		vim.cmd.colorscheme (rand_scheme)
+		C_set_random_colorscheme(C_all_filter)
 	end,
 	{ desc = "Random colorscheme" }
+)
+
+-- Print avaliable colorschemes
+map (
+	{'n'},
+	'<leader>PR',
+	function()
+		C_print_colorscheme_list(C_all_filter)
+	end,
+	{ desc = "Print avaliable colorschemes" }
 )
 
 -- current date
