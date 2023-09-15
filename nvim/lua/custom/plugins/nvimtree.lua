@@ -33,6 +33,11 @@ return {
 				dotfiles = false,
 			},
 			reload_on_bufenter = true,
+			actions = {
+				open_file = {
+					quit_on_open = true
+				}
+			}
 		})
 
 	-- set keymaps for using nvim-tree
@@ -41,9 +46,8 @@ return {
     vim.keymap.set('n', '<leader>nC', function() vim.cmd('NvimTreeCollapse') end, { desc = "Collapses folders in nvim tree" })
     vim.keymap.set('n', '<leader>nf', function() vim.cmd('NvimTreeFindFile') end, { desc = "Finds files in nvim tree" })
 
-	-- set nvim tree options
-	
-
+	-- too much muscle memory
+	vim.api.nvim_create_user_command('Ex', function() vim.cmd('NvimTreeToggle') end, {})
   end,
   lazy = true
 }
