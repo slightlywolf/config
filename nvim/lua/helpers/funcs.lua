@@ -54,7 +54,15 @@ function C_print_colorscheme_list(filter_func)
 end
 
 function C_set_random_colorscheme(filter_func)
+	local current_scheme = vim.g.colors_name
 	local color = C_get_random_colorscheme(filter_func)
+
+	-- different every time
+	while current_scheme == color do
+		current_scheme = vim.g.colors_name
+		color = C_get_random_colorscheme(filter_func)
+	end
+
 	vim.cmd.colorscheme(color)
 end
 
