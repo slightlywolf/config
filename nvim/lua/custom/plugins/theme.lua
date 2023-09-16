@@ -11,8 +11,8 @@ return {
 	{ "tpope/vim-vividchalk" },
 	{ "nanotech/jellybeans.vim" },
 
+	{ 'rainglow/vim' },
 	{ 'aditya-azad/candle-grey', },
-	{ 'embark-theme/vim', },
 	{'daviddavis/vim-colorpack' },
 
 	{ "EdenEast/nightfox.nvim",

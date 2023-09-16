@@ -31,11 +31,34 @@ function C_filter_copy_array(arr, func)
 	return ret_schemes
 end
 
+local function get_key_for_value( t, value )
+  for k,v in pairs(t) do
+    if v==value then return k end
+  end
+  return nil
+end
+
 function C_get_random_colorscheme(filter_func)
 	-- every colorscheme should be valid
 	math.randomseed(os.time())
 	local colors_to_use = C_get_random_colorscheme_list(filter_func)
+
 	local rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
+
+    if rand_scheme == vim.g.colors_name and #colors_to_use > 1 then
+		-- if there is more than one color than
+
+		local current_scheme = vim.g.colors_name
+		local key_of_current_scheme = get_key_for_value(colors_to_use, current_scheme)
+
+		if colors_to_use[key_of_current_scheme] then -- if in the list
+			colors_to_use.remove(key_of_current_scheme)
+		end
+
+		-- pick a different scheme
+		rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
+	end
+
 	return rand_scheme
 end
 
@@ -45,8 +68,10 @@ function C_get_random_colorscheme_list(filter_func)
 
 	local my_colors = vim.fn.getcompletion("","color")
 	local colors_to_use = C_filter_copy_array(my_colors, func_to_use)
+
 	return colors_to_use
 end
+
 
 function C_print_colorscheme_list(filter_func)
 	local schemes = C_get_random_colorscheme_list(filter_func)
@@ -57,11 +82,6 @@ function C_set_random_colorscheme(filter_func)
 	local current_scheme = vim.g.colors_name
 	local color = C_get_random_colorscheme(filter_func)
 
-	-- different every time
-	while current_scheme == color do
-		current_scheme = vim.g.colors_name
-		color = C_get_random_colorscheme(filter_func)
-	end
 
 	vim.cmd.colorscheme(color)
 end

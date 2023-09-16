@@ -10,7 +10,7 @@ end
 vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   group = augroup("fileopen"),
   callback = function()
-	C_set_random_colorscheme(C_all_filter)
+	  C_set_random_colorscheme(C_all_filter)
   end,
 })
 
