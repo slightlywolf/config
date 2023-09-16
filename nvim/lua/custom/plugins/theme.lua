@@ -11,6 +11,7 @@ return {
 	{ "tpope/vim-vividchalk" },
 	{ "nanotech/jellybeans.vim" },
 
+	{ 'gmist/vim-palette' },
 	{ 'rainglow/vim' },
 	{ 'aditya-azad/candle-grey', },
 	{'daviddavis/vim-colorpack' },
