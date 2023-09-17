@@ -271,7 +271,7 @@ map (
 -- Print avaliable colorschemes
 map (
 	{'n'},
-	'<leader>PR',
+	'<leader>rP',
 	function()
 		C_print_colorscheme_list(C_all_filter)
 	end,
