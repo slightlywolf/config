@@ -17,7 +17,6 @@ local other_color_filters = {
 	end
 }
 
-
 -- ##############################################################################
 
 function C_filter_copy_array(arr, func)

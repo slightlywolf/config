@@ -33,6 +33,13 @@ return {
 				dotfiles = false,
 			},
 			reload_on_bufenter = true,
+			git = {
+				enable = true,
+				show_on_dirs = true,
+				show_on_open_dirs = true,
+				disable_for_dirs = {},
+				timeout = 5000,
+			},
 			actions = {
 				open_file = {
 					quit_on_open = true
