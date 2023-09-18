@@ -4,6 +4,7 @@ local scheme_whitelist = {
 
 local scheme_blacklist = {
 	"bold-light",
+	"contrasty"
 }
 
 local other_color_filters = {
@@ -79,9 +80,8 @@ function C_print_colorscheme_list(filter_func)
 end
 
 function C_set_random_colorscheme(filter_func)
-	local current_scheme = vim.g.colors_name
 	local color = C_get_random_colorscheme(filter_func)
-
+	vim.print(color)
 
 	vim.cmd.colorscheme(color)
 end

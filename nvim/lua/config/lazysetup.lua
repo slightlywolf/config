@@ -126,7 +126,7 @@ require('lazy').setup(
             },
         },
         { 'akinsho/bufferline.nvim', version = "v3.*", dependencies = 'nvim-tree/nvim-web-devicons' },
-		
+
         -- "gc" to comment visual regions/lines
         { 'numToStr/Comment.nvim',   enabled = true, opts = {} , lazy = false},
 
@@ -172,6 +172,12 @@ require('lazy').setup(
 						},
 					},
 					defaults = {
+						layout_strategy = 'vertical',
+						layout_config = {
+							height = 0.95,
+							width = 0.95,
+							preview_cutoff = 1
+						},
 					}
 				})
 				require("telescope").load_extension("undo")
