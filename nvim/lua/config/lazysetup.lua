@@ -154,7 +154,10 @@ require('lazy').setup(
                 'nvim-treesitter/nvim-treesitter-textobjects',
             },
             config = function()
-                pcall(require('nvim-treesitter.install').update { with_sync = true })
+				-- This line makes it so that it says
+				-- parsers are up to date every time that vim opens
+				-- which is quite annoying
+                --pcall(require('nvim-treesitter.install').update { with_sync = true })
             end,
         },
 

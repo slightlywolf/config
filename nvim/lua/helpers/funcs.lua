@@ -80,7 +80,6 @@ end
 
 function C_set_random_colorscheme(filter_func)
 	local color = C_get_random_colorscheme(filter_func)
-	vim.print(color)
 
 	vim.cmd.colorscheme(color)
 end
