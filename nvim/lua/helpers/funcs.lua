@@ -1,5 +1,5 @@
 local scheme_whitelist = {
-	"duskfox"
+	"fox"
 }
 
 local scheme_blacklist = {
@@ -107,7 +107,7 @@ end
 
 function ColorIsBlackListed(colorscheme_name)
 	for _, v in ipairs(scheme_blacklist) do
-		if colorscheme_name == v then
+		if string.find(colorscheme_name, v) then
 			return true
 		end
 	end
@@ -117,7 +117,7 @@ end
 
 function ColorIsWhitelisted(colorscheme_name)
 	for _, v in ipairs(scheme_whitelist) do
-		if colorscheme_name == v then
+		if string.find(colorscheme_name, v) then
 			return true
 		end
 	end
