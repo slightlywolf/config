@@ -31,7 +31,7 @@ vim.o.wrap = false
 vim.o.cursorline = false
 
 -- set the nvim guifont
-vim.opt.guifont = { "GohuFont 14 Nerd Font:h31.5"}
+vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
 --vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h10"}
 -- vim.opt.guifont = { "Hurmit Nerd Font:h16"}
