@@ -1,5 +1,16 @@
 local scheme_whitelist = {
-	"fox"
+	"duskfox",
+	"violaceous-contrast",
+	"azure-contrast",
+	"codecourse-contrast",
+	"chocolate-contrast",
+	"crackpot-contrast",
+	"warlock-contrast",
+	"lichen-contrast",
+	"scorch-contrast",
+	"otakon-contrast",
+	"piggy-contrast",
+	"kiwi-contrast",
 }
 
 local scheme_blacklist = {
@@ -9,9 +20,9 @@ local scheme_blacklist = {
 
 local other_color_filters = {
 	function(colorscheme_name) -- contrast
-		if string.find(colorscheme_name, "contrast") then
-			return true
-		end
+		-- if string.find(colorscheme_name, "contrast") then
+		-- 	return true
+		-- end
 
 		return false
 	end
@@ -102,12 +113,14 @@ function C_all_filter(colorscheme_name)
 		end
 	end
 
-	return true
+	-- change this to true for all schemes but those blacklisted
+	-- otherwise false to only have the whitelisted schemes
+	return false
 end
 
 function ColorIsBlackListed(colorscheme_name)
 	for _, v in ipairs(scheme_blacklist) do
-		if string.find(colorscheme_name, v) then
+		if string.find(colorscheme_name, v) or colorscheme_name == v then
 			return true
 		end
 	end
@@ -117,7 +130,7 @@ end
 
 function ColorIsWhitelisted(colorscheme_name)
 	for _, v in ipairs(scheme_whitelist) do
-		if string.find(colorscheme_name, v) then
+		if string.find(colorscheme_name, v) or colorscheme_name == v then
 			return true
 		end
 	end
