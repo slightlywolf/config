@@ -116,4 +116,6 @@ require("config.vimtion")
 require("util.init")
 require("helpers.funcs")
 
+-- vim.cmd.colorscheme("azure-contrast")
+-- C_set_random_colorscheme(C_all_filter)
 
