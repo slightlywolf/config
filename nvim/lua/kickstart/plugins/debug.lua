@@ -36,13 +36,31 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'delve',
+        'corelr',
       },
+	  handlers = {
+		function(config)
+          -- all sources with no handler get passed here
+
+          -- Keep original functionality
+          require('mason-nvim-dap').default_setup(config)
+        end,
+        corelr = function(config)
+            config.adapters = {
+	            type = "executable",
+	            command = "C:\\_dev\\netcoredbg\\netcoredbg.exe",
+	            args = {
+					"--interpreter=vscode"
+	            },
+            }
+            require('mason-nvim-dap').default_setup(config) -- don't forget this!
+        end,
+	  }
     }
 
     -- You can provide additional configuration to the handlers,
     -- see mason-nvim-dap README for more information
-    require('mason-nvim-dap').setup_handlers()
+    --require('mason-nvim-dap').setup_handlers()
 
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<F5>', dap.continue)

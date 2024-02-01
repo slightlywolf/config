@@ -7,12 +7,12 @@ end
 
 
 -- chose a random color on buff open
-vim.api.nvim_create_autocmd({ "BufReadPre" }, {
-  group = augroup("fileopen"),
-  callback = function()
-	  C_set_random_colorscheme(C_all_filter)
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufReadPre" }, {
+--   group = augroup("fileopen"),
+--   callback = function()
+-- 	  C_set_random_colorscheme(C_all_filter)
+--   end,
+-- })
 
 
 -- [[ Highlight on yank ]]

@@ -5,7 +5,8 @@ set mouse=a
 if exists(':GuiFont')
     " Use GuiFont! to ignore font errors
     " GuiFont 'ProggyClean Nerd Font':h16
-    GuiFont 'GohuFont 11 Nerd Font':h17
+    " GuiFont 'GohuFont 11 Nerd Font':h17
+    GuiFont 'BigBlueTerm437 Nerd Font':h18
 endif
 
 " Disable GUI Tabline

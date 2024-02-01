@@ -40,6 +40,10 @@ return {
 				disable_for_dirs = {},
 				timeout = 5000,
 			},
+			-- update_focused_file = {
+			-- 	enable = true,
+			-- 	update_root = true
+			-- },		
 			actions = {
 				open_file = {
 					quit_on_open = true
@@ -52,7 +56,9 @@ return {
     vim.keymap.set('n', '<leader>nc', function() vim.cmd('NvimTreeClose') end , { desc = "Closes nvim tree" })
     vim.keymap.set('n', '<leader>nC', function() vim.cmd('NvimTreeCollapse') end, { desc = "Collapses folders in nvim tree" })
     vim.keymap.set('n', '<leader>nf', function() vim.cmd('NvimTreeFindFile') end, { desc = "Finds files in nvim tree" })
-
+	
+    vim.keymap.set('n', '<leader>nu', function() api.tree.change_root(vim.fn.expand('%:h')) end, { desc = "Update root directory" })
+		
 	-- too much muscle memory
 	vim.api.nvim_create_user_command('Ex', function() vim.cmd('NvimTreeToggle') end, {})
   end,

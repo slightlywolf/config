@@ -123,7 +123,8 @@ require('lazy').setup(
 			config = function()
 				require("ibl").setup({
 					indent = {
-						char = "┊"
+						char = "│"
+						--char = "┊"
 					}
 				})
 			end,

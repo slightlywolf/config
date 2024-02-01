@@ -1,20 +1,27 @@
+-- blink-light
+-- Base2Tone-Morning-light
+
+
 local scheme_whitelist = {
-	"fox"
+	--"fox",
+	"light",
+	--"monokai-soda"
 }
 
 local scheme_blacklist = {
 	"bold-light",
-	"contrasty"
+	"contrasty",
 }
 
-local other_color_filters = {
-	function(colorscheme_name) -- contrast
-		if string.find(colorscheme_name, "contrast") then
-			return true
-		end
 
-		return false
-	end
+local other_color_filters = {
+	-- function(colorscheme_name) -- contrast
+	-- 	if string.find(colorscheme_name, "contrast") then
+	-- 		return true
+	-- 	end
+	--
+	-- 	return false
+	-- end
 }
 
 -- ##############################################################################
@@ -87,14 +94,14 @@ end
 -- combines a large number of filters into one
 function C_all_filter(colorscheme_name)
 	--whitelist acts before other filters
+	if ColorIsBlackListed(colorscheme_name) then
+		return false
+	end
 
 	if ColorIsWhitelisted(colorscheme_name) then
 		return true
 	end
 
-	if ColorIsBlackListed(colorscheme_name) then
-		return false
-	end
 
 	for _, colorfilter in ipairs(other_color_filters) do
 		if not colorfilter(colorscheme_name) then
@@ -102,7 +109,7 @@ function C_all_filter(colorscheme_name)
 		end
 	end
 
-	return true
+	return false
 end
 
 function ColorIsBlackListed(colorscheme_name)
