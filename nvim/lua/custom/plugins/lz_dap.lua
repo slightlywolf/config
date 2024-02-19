@@ -107,6 +107,10 @@ return
 								type = "executable",
 								--command = "/home/nathanharmer/.local/share/nvim/mason/bin/debugpy-adapter",
 								command = "C:\\Users\\nathan.harmer\\AppData\\Local\\nvim-data\\mason\\bin\\debugpy-adapter.cmd",
+								-- command = "python -m debugpy",
+								args = {
+									"--listen 127.0.0.1:${port}"
+								},
 							}
 							require('mason-nvim-dap').default_setup(config) -- don't forget this!
 						end,

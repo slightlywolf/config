@@ -4,7 +4,8 @@
 
 local scheme_whitelist = {
 	--"fox",
-	"light",
+	"Base2Tone",
+	--"light",
 	--"monokai-soda"
 	-- "duskfox",
 	-- "violaceous-contrast",
@@ -21,6 +22,21 @@ local scheme_whitelist = {
 }
 
 local scheme_blacklist = {
+	"light",
+	"Light",
+	"flight",
+	"Base2Tone-Lake-Dark",
+	"Base2Tone-Sea-Dark",
+	"Base2Tone-Meadow-Dark",
+	"Base2Tone-Lake-dark",
+	"Base2Tone-Sea-dark",
+	"Base2Tone-Meadow-dark",
+	"Base2Tone-Lakedark",
+	"Base2Tone-Seadark",
+	"Base2Tone-Meadowdark",
+	"Base2Tone-LakeDark",
+	"Base2Tone-SeaDark",
+	"Base2Tone-MeadowDark",
 	"bold-light",
 	"contrasty",
 }
