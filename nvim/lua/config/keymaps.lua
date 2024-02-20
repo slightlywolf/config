@@ -294,9 +294,9 @@ map (
 -- text wrap paragraph
 map (
 	{'n'},
-	'<leader>w',
+	'<leader>tw',
 	function()
 		vim.cmd('normal vipgq')
 	end,
-	{ desc = "[W]rap paragraph" }
+	{ desc = "[T]ext wrap paragraph" }
 )
