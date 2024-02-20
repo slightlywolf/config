@@ -46,6 +46,8 @@ local keys = {
 	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 	{ "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
 	{ "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
+	{ "<leader>sf", Util.telescope("files"), desc = "Find Files (root dir)" },
+	{ "<leader>sF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
 	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
 	{ "<leader>fR", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
 	-- git
@@ -287,4 +289,14 @@ map (
 		vim.cmd('normal "qp')
 	end,
 	{ desc = "Current date dd-mm-yyyy" }
+)
+
+-- text wrap paragraph
+map (
+	{'n'},
+	'<leader>w',
+	function()
+		vim.cmd('normal vipgq')
+	end,
+	{ desc = "[W]rap paragraph" }
 )
