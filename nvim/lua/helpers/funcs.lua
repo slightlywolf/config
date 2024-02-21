@@ -6,19 +6,20 @@ local scheme_whitelist = {
 	--"fox",
 	"Base2Tone",
 	--"light",
-	--"monokai-soda"
+	-- "monokai-soda"
 	-- "duskfox",
-	-- "violaceous-contrast",
-	-- "azure-contrast",
-	-- "codecourse-contrast",
-	-- "chocolate-contrast",
-	-- "crackpot-contrast",
-	-- "warlock-contrast",
-	-- "lichen-contrast",
-	-- "scorch-contrast",
-	-- "otakon-contrast",
-	-- "piggy-contrast",
-	-- "kiwi-contrast",
+
+	"violaceous-contrast",
+	"azure-contrast",
+	"codecourse-contrast",
+	"chocolate-contrast",
+	"crackpot-contrast",
+	"warlock-contrast",
+	"lichen-contrast",
+	"scorch-contrast",
+	"otakon-contrast",
+	"piggy-contrast",
+	"kiwi-contrast",
 }
 
 local scheme_blacklist = {
@@ -37,8 +38,8 @@ local scheme_blacklist = {
 	"Base2Tone-LakeDark",
 	"Base2Tone-SeaDark",
 	"Base2Tone-MeadowDark",
-	"bold-light",
-	"contrasty",
+	-- "bold-light",
+	-- "contrasty",
 }
 
 
