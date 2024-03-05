@@ -14,7 +14,8 @@
 require("helpers.funcs")
 
 -- C_set_random_colorscheme(C_all_filter)
-vim.cmd.colorscheme("redstring")
+-- vim.cmd.colorscheme("redstring")
+vim.cmd.colorscheme("scorch-contrast")
 
 vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
 
