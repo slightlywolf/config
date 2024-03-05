@@ -1,3 +1,6 @@
+local function datetime()
+	return os.date('%Y-%m-%d %H:%M', os.time())
+end		
 
 --
 -- Custom lualine
@@ -27,7 +30,7 @@ return
         lualine_a = { 'mode'},
         lualine_b = { 'branch', 'diff', 'diagnostics'},
         lualine_c = { 'filename'},
-        lualine_x = { 'encoding', 'fileformat', 'filetype'},
+        lualine_x = { 'encoding', 'fileformat', 'filetype', datetime},
         lualine_y = { 'progress', 'selectioncount'},
         lualine_z = { 'hostname','location'}
       },
