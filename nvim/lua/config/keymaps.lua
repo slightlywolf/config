@@ -266,6 +266,7 @@ map (
 	'<leader>R',
 	function()
 		C_set_random_colorscheme(C_all_filter)
+		Disable_Background()
 	end,
 	{ desc = "Random colorscheme" }
 )

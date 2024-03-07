@@ -5,39 +5,39 @@
 local scheme_whitelist = {
 	--"fox",
 	"Base2Tone",
-	--"light",
-	-- "monokai-soda"
+	-- "light",
+	-- "monokai-soda",
 	-- "duskfox",
-
-	"violaceous-contrast",
-	"azure-contrast",
-	"codecourse-contrast",
-	"chocolate-contrast",
-	"crackpot-contrast",
-	"warlock-contrast",
-	"lichen-contrast",
-	"scorch-contrast",
-	"otakon-contrast",
-	"piggy-contrast",
-	"kiwi-contrast",
+	--
+	-- "violaceous-contrast",
+	-- "azure-contrast",
+	-- "codecourse-contrast",
+	-- "chocolate-contrast",
+	-- "crackpot-contrast",
+	-- "warlock-contrast",
+	-- "lichen-contrast",
+	-- "scorch-contrast",
+	-- "otakon-contrast",
+	-- "piggy-contrast",
+	-- "kiwi-contrast",
 }
 
 local scheme_blacklist = {
 	"light",
 	"Light",
 	"flight",
-	"Base2Tone-Lake-Dark",
-	"Base2Tone-Sea-Dark",
-	"Base2Tone-Meadow-Dark",
-	"Base2Tone-Lake-dark",
-	"Base2Tone-Sea-dark",
-	"Base2Tone-Meadow-dark",
-	"Base2Tone-Lakedark",
-	"Base2Tone-Seadark",
-	"Base2Tone-Meadowdark",
-	"Base2Tone-LakeDark",
-	"Base2Tone-SeaDark",
-	"Base2Tone-MeadowDark",
+	-- "Base2Tone-Lake-Dark",
+	-- "Base2Tone-Sea-Dark",
+	-- "Base2Tone-Meadow-Dark",
+	-- "Base2Tone-Lake-dark",
+	-- "Base2Tone-Sea-dark",
+	-- "Base2Tone-Meadow-dark",
+	-- "Base2Tone-Lakedark",
+	-- "Base2Tone-Seadark",
+	-- "Base2Tone-Meadowdark",
+	-- "Base2Tone-LakeDark",
+	-- "Base2Tone-SeaDark",
+	-- "Base2Tone-MeadowDark",
 	-- "bold-light",
 	-- "contrasty",
 }
@@ -54,6 +54,18 @@ local other_color_filters = {
 }
 
 -- ##############################################################################
+-- disable background
+function Disable_Background()
+	-- 
+	vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
+	vim.cmd "autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE"
+
+	-- disable the background for tabs
+	vim.api.nvim_set_hl(0, "SpecialKey", {guibg=NONE, ctermbg=NONE})
+
+	-- disable the background for the signcolumn
+	vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
+end
 
 function C_filter_copy_array(arr, func)
 	local ret_schemes = {}

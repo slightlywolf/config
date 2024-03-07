@@ -13,9 +13,9 @@
 --
 require("helpers.funcs")
 
--- C_set_random_colorscheme(C_all_filter)
+C_set_random_colorscheme(C_all_filter)
 -- vim.cmd.colorscheme("redstring")
-vim.cmd.colorscheme("scorch-contrast")
+-- vim.cmd.colorscheme("scorch-contrast")
 
 vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
 
@@ -25,6 +25,8 @@ vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! Cursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! CursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
+-- disable background
+Disable_Background()
 
 --
 -- Set highlight on search
@@ -34,10 +36,10 @@ vim.o.cursorline = false
 
 -- set the nvim guifont
 --vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
-vim.opt.guifont = { "Iosevka Nerd Font Mono:h17"}
+-- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
 --vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h10"}
--- vim.opt.guifont = { "Hurmit Nerd Font:h16"}
+vim.opt.guifont = { "Hurmit Nerd Font:h11"}
 
 -- Make line numbers default
 vim.wo.number = true
