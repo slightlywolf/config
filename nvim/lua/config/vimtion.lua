@@ -38,15 +38,15 @@ vim.o.cursorline = false
 --vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
---vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h10"}
-vim.opt.guifont = { "Hurmit Nerd Font:h11"}
+vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
+-- vim.opt.guifont = { "Hurmit Nerd Font:h11"}
 
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.o.colorcolumn = "88"
-vim.cmd[[highlight ColorColumn ctermbg=0 guibg=White]]
+-- vim.cmd[[highlight ColorColumn ctermbg=0 guibg=White]]
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
