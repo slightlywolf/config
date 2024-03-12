@@ -46,7 +46,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.o.colorcolumn = "88"
--- vim.cmd[[highlight ColorColumn ctermbg=0 guibg=White]]
+vim.cmd[[highlight ColorColumn ctermbg=0 guibg=White]]
 
 -- Enable mouse mode
 vim.o.mouse = 'a'

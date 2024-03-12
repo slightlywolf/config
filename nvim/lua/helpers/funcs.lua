@@ -66,6 +66,9 @@ function Disable_Background()
 	-- disable the background for the signcolumn
 	vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
 end
+vim.api.nvim_create_user_command('DisableBackground', Disable_Background, {})
+
+
 
 function C_filter_copy_array(arr, func)
 	local ret_schemes = {}
