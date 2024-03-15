@@ -1,25 +1,16 @@
 -- blink-light
 -- Base2Tone-Morning-light
+-- for some reason the backgrounds behind tabs become a different color
+-- with some schemes, the Base2Tone schemes do not have this issue though
 
 
 local scheme_whitelist = {
 	--"fox",
-	"Base2Tone",
+	--"Base2Tone",
 	-- "light",
 	-- "monokai-soda",
 	-- "duskfox",
-	--
-	-- "violaceous-contrast",
-	-- "azure-contrast",
-	-- "codecourse-contrast",
-	-- "chocolate-contrast",
-	-- "crackpot-contrast",
-	-- "warlock-contrast",
-	-- "lichen-contrast",
-	-- "scorch-contrast",
-	-- "otakon-contrast",
-	-- "piggy-contrast",
-	-- "kiwi-contrast",
+	
 }
 
 local scheme_blacklist = {
@@ -55,16 +46,27 @@ local other_color_filters = {
 
 -- ##############################################################################
 -- disable background
+-- this is my terrible hack
 function Disable_Background()
+
+	-- vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
+	--
+	-- -- disable the end of buffer highlighting
+	-- vim.cmd "autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE"
+	--
+	-- -- disable the background for tabs
+	-- vim.api.nvim_set_hl(0, "SpecialKey", {guibg=NONE, ctermbg=NONE})
+	--
+	-- -- disable the background for the signcolumn
+	-- vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
 	-- 
-	vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
-	vim.cmd "autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE"
+	-- -- disable the background for the signcolumn
+	-- vim.api.nvim_set_hl(0, "NonText", {guibg=NONE, ctermbg=NONE})
+	--
+	-- -- disable the background for comments
+	-- vim.api.nvim_set_hl(0, "Comment", {guibg=NONE, ctermbg=NONE})
 
-	-- disable the background for tabs
-	vim.api.nvim_set_hl(0, "SpecialKey", {guibg=NONE, ctermbg=NONE})
 
-	-- disable the background for the signcolumn
-	vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
 end
 vim.api.nvim_create_user_command('DisableBackground', Disable_Background, {})
 
@@ -155,7 +157,9 @@ function C_all_filter(colorscheme_name)
 
 	-- change this to true for all schemes but those blacklisted
 	-- otherwise false to only have the whitelisted schemes
-	return false
+	local AllExceptBlackListed = true
+	local OnlyWhitelisted = false
+	return AllExceptBlackListed
 end
 
 function ColorIsBlackListed(colorscheme_name)

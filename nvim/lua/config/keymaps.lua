@@ -156,7 +156,7 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 ----------------------------------------------------------------------------------------
 -- BASIC KEY MAPS
 ----------------------------------------------------------------------------------------
-vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle, { desc = '[u]ndo [t]ree' })
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
