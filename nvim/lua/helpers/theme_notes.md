@@ -21,5 +21,12 @@
 # other pretty cool themes
 
 bjorn
+eclm-wombat
+rootwater
+
+# monochrome
+
+##light 
+terse
 
 

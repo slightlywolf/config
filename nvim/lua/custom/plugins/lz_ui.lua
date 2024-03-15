@@ -135,7 +135,7 @@ return {
 			})
 
 			vim.keymap.set('n', '<leader>uT', vim.cmd.TransparentToggle, { desc = '[u]i [T]oggle Transparency' })
-			local TransparentByDefault = true
+			local TransparentByDefault = false
 
 			if(TransparentByDefault) then
 				vim.cmd.TransparentEnable()
