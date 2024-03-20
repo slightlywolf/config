@@ -3,17 +3,22 @@
 -- for some reason the backgrounds behind tabs become a different color
 -- with some schemes, the Base2Tone schemes do not have this issue though
 
-
 local scheme_whitelist = {
 	--"fox",
 	--"Base2Tone",
 	-- "light",
 	-- "monokai-soda",
 	-- "duskfox",
-	
+
 }
 
 local scheme_blacklist = {
+	-- light themes specifically
+	"laederon",
+	"nicotine",
+	"pleasant",
+
+
 	"light",
 	"Light",
 	"flight",
@@ -46,9 +51,8 @@ local other_color_filters = {
 
 -- ##############################################################################
 -- disable background
--- this is my terrible hack
+-- this is my terrible hack, use transparent.nvim from now on
 function Disable_Background()
-
 	-- vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
 	--
 	-- -- disable the end of buffer highlighting
@@ -59,15 +63,14 @@ function Disable_Background()
 	--
 	-- -- disable the background for the signcolumn
 	-- vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
-	-- 
+	--
 	-- -- disable the background for the signcolumn
 	-- vim.api.nvim_set_hl(0, "NonText", {guibg=NONE, ctermbg=NONE})
 	--
 	-- -- disable the background for comments
 	-- vim.api.nvim_set_hl(0, "Comment", {guibg=NONE, ctermbg=NONE})
-
-
 end
+
 vim.api.nvim_create_user_command('DisableBackground', Disable_Background, {})
 
 
@@ -77,18 +80,18 @@ function C_filter_copy_array(arr, func)
 
 	for _, scheme_name in ipairs(arr) do
 		if func(scheme_name) then
-			ret_schemes[#ret_schemes+1] = scheme_name
+			ret_schemes[#ret_schemes + 1] = scheme_name
 		end
 	end
 
 	return ret_schemes
 end
 
-local function get_key_for_value( t, value )
-  for k,v in pairs(t) do
-    if v==value then return k end
-  end
-  return nil
+local function get_key_for_value(t, value)
+	for k, v in pairs(t) do
+		if v == value then return k end
+	end
+	return nil
 end
 
 function C_get_random_colorscheme(filter_func)
@@ -98,14 +101,14 @@ function C_get_random_colorscheme(filter_func)
 
 	local rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
 
-    if rand_scheme == vim.g.colors_name and #colors_to_use > 1 then
+	if rand_scheme == vim.g.colors_name and #colors_to_use > 1 then
 		-- if there is more than one color than
 
 		local current_scheme = vim.g.colors_name
 		local key_of_current_scheme = get_key_for_value(colors_to_use, current_scheme)
 
 		if colors_to_use[key_of_current_scheme] then -- if in the list
-			table.remove(colors_to_use,key_of_current_scheme)
+			table.remove(colors_to_use, key_of_current_scheme)
 		end
 
 		-- pick a different scheme
@@ -119,22 +122,33 @@ end
 function C_get_random_colorscheme_list(filter_func)
 	local func_to_use = filter_func or C_all_filter
 
-	local my_colors = vim.fn.getcompletion("","color")
+	local my_colors = vim.fn.getcompletion("", "color")
 	local colors_to_use = C_filter_copy_array(my_colors, func_to_use)
 
 	return colors_to_use
 end
-
 
 function C_print_colorscheme_list(filter_func)
 	local schemes = C_get_random_colorscheme_list(filter_func)
 	vim.print(schemes)
 end
 
+function SetRandomColorScheme(filter_func)
+	C_set_random_colorscheme(filter_func)
+end
+
 function C_set_random_colorscheme(filter_func)
 	local color = C_get_random_colorscheme(filter_func)
 
-	vim.cmd.colorscheme(color)
+	if pcall(
+			function()
+				vim.cmd.colorscheme(color)
+			end
+		) then
+		-- do nothing
+	else
+		SetRandomColorScheme(filter_func)
+	end
 end
 
 -- combines a large number of filters into one
@@ -181,6 +195,3 @@ function ColorIsWhitelisted(colorscheme_name)
 
 	return false
 end
-
-
-
