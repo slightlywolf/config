@@ -28,5 +28,9 @@ rootwater
 
 ##light 
 terse
+zazen
 
+# cool light backgrounds
+github-light
+tutticolori
 
