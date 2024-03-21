@@ -14,14 +14,18 @@ local scheme_whitelist = {
 
 local scheme_blacklist = {
 	-- light themes specifically
-	"laederon",
-	"nicotine",
-	"pleasant",
+
+	-- "laederon",
+	-- "nicotine",
+	-- "pleasant",
 
 
-	"light",
-	"Light",
-	"flight",
+	-- "light",
+	-- "Light",
+	-- "flight",
+
+
+
 	-- "Base2Tone-Lake-Dark",
 	-- "Base2Tone-Sea-Dark",
 	-- "Base2Tone-Meadow-Dark",
