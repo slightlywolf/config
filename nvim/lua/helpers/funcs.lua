@@ -3,6 +3,9 @@
 -- for some reason the backgrounds behind tabs become a different color
 -- with some schemes, the Base2Tone schemes do not have this issue though
 
+vim.o.background = 'light'
+vim.o.termguicolors = true
+
 local scheme_whitelist = {
 	--"fox",
 	--"Base2Tone",
@@ -26,6 +29,16 @@ local scheme_blacklist = {
 
 
 
+	-- "laederon",
+	-- "nicotine",
+	-- "pleasant",
+	--
+	--
+	-- "light",
+	-- "Light",
+	-- "flight",
+	
+	-- other themes
 	-- "Base2Tone-Lake-Dark",
 	-- "Base2Tone-Sea-Dark",
 	-- "Base2Tone-Meadow-Dark",
