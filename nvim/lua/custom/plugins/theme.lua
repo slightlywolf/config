@@ -1,7 +1,7 @@
 return {
-	{ 
-		"kartikp10/noctis.nvim", 
-		dependencies = 
+	{
+		"kartikp10/noctis.nvim",
+		dependencies =
 		{
 			-- Automatically install LSPs to stdpath for neovim
 			'rktjmp/lush.nvim',
@@ -14,9 +14,10 @@ return {
 	{ 'gmist/vim-palette' },
 	{ 'rainglow/vim' },
 	{ 'aditya-azad/candle-grey', },
-	{'daviddavis/vim-colorpack' },
+	{ 'daviddavis/vim-colorpack' },
 
-	{ "EdenEast/nightfox.nvim",
+	{
+		"EdenEast/nightfox.nvim",
 		priority = 1000,
 		config = function()
 			require('nightfox').setup({
@@ -24,21 +25,21 @@ return {
 					-- Compiled file's destination location
 					compile_path = vim.fn.stdpath("cache") .. "/nightfox",
 					compile_file_suffix = "_compiled", -- Compiled file suffix
-					transparent = false,     -- Disable setting background
-					terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-					dim_inactive = false,    -- Non focused panes set to alternative background
-					module_default = true,   -- Default enable value for modules
+					transparent = false, -- Disable setting background
+					terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+					dim_inactive = false, -- Non focused panes set to alternative background
+					module_default = true, -- Default enable value for modules
 					colorblind = {
-						enable = false,        -- Enable colorblind support
+						enable = false, -- Enable colorblind support
 						simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
 						severity = {
-							protan = 0,          -- Severity [0,1] for protan (red)
-							deutan = 0,          -- Severity [0,1] for deutan (green)
-							tritan = 0,          -- Severity [0,1] for tritan (blue)
+							protan = 0, -- Severity [0,1] for protan (red)
+							deutan = 0, -- Severity [0,1] for deutan (green)
+							tritan = 0, -- Severity [0,1] for tritan (blue)
 						},
 					},
-					styles = {               -- Style to be applied to different syntax groups
-						comments = "NONE",     -- Value is any valid attr-list value `:help attr-list`
+					styles = { -- Style to be applied to different syntax groups
+						comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
 						conditionals = "NONE",
 						constants = "NONE",
 						functions = "NONE",
@@ -49,20 +50,19 @@ return {
 						types = "NONE",
 						variables = "NONE",
 					},
-					inverse = {             -- Inverse highlight for different types
+					inverse = { -- Inverse highlight for different types
 						match_paren = false,
 						visual = false,
 						search = false,
 					},
-					modules = {             -- List of various plugins and additional options
+					modules = { -- List of various plugins and additional options
 						-- ...
 					},
 				},
-			palettes = {},
+				palettes = {},
 				specs = {},
 				groups = {},
 			})
-
 		end
 	},
 
@@ -71,7 +71,6 @@ return {
 		enabled = false,
 		priority = 1000,
 		config = function()
-
 			require("leaf").setup({
 				underlineStyle = "undercurl",
 				commentStyle = "italic",
@@ -87,6 +86,16 @@ return {
 				contrast = "high", -- default, alternatives: "medium", "high"
 			})
 		end,
+	},
+
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"bradcush/nvim-base16"
 	}
 
 }
