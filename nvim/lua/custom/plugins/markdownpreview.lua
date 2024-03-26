@@ -116,7 +116,7 @@ return
 
 			-- set default theme (dark or light)
 			-- By default the theme is defined according to the preferences of the system
-			vim.g.mkdp_theme = 'light'
+			vim.g.mkdp_theme = 'dark'
 
 			-- combine preview window
 			-- default: 0
