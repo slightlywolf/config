@@ -142,5 +142,15 @@ return {
 			end
 
 		end
+	},
+	{	"shortcuts/no-neck-pain.nvim", 
+		version = "*",
+		init = function()
+			vim.keymap.set('n', '<leader>nnp', 
+				function() vim.cmd.NoNeckPain() end, { desc = '[n]o [n]eck [p]ain' })
+			vim.keymap.set('n', '<leader>nn+', vim.cmd.NoNeckPainWidthUp, { desc = '[n]o [n]eck width up' })
+			vim.keymap.set('n', '<leader>nn-', vim.cmd.NoNeckPainWidthDown, { desc = '[n]o [n]eck width down' })
+
+		end
 	}
 }
