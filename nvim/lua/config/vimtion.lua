@@ -37,8 +37,9 @@ vim.o.cursorline = false
 -- set the nvim guifont
 --vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
+vim.opt.guifont = { "Iosevka Nerd Font:h18"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
-vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
+-- vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
 -- vim.opt.guifont = { "Hurmit Nerd Font:h11"}
 
 -- Make line numbers default
