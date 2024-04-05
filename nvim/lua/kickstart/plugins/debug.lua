@@ -36,7 +36,7 @@ return {
       -- online, please don't ask me how to install them :)
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
-        'corelr',
+        'coreclr',
       },
 	  handlers = {
 		function(config)
@@ -45,7 +45,7 @@ return {
           -- Keep original functionality
           require('mason-nvim-dap').default_setup(config)
         end,
-        corelr = function(config)
+        coreclr = function(config)
             config.adapters = {
 	            type = "executable",
 	            command = "C:\\_dev\\netcoredbg\\netcoredbg.exe",
