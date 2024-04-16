@@ -16,6 +16,13 @@ return {
 	},
 
 	{
+		"sindrets/diffview.nvim" ,
+		config = function()
+			require("diffview").setup()
+		end
+	},
+
+	{
 		'petertriho/nvim-scrollbar',
 		config = function()
 			require("scrollbar").setup()
