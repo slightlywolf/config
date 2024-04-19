@@ -47,7 +47,7 @@ return {
 	-- the highlighting.
 	{
 		"folke/noice.nvim",
-		enabled = true,
+		enabled = false,
 		event = "VeryLazy",
 		opts = {
 			lsp = {
