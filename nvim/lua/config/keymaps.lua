@@ -198,7 +198,8 @@ map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- lazy
-map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+-- map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
+map("n", "<leader>l", "<c-^>", { desc = "Open Last File" })
 
 -- toggle options
 if vim.lsp.inlay_hint then
