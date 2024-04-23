@@ -40,8 +40,6 @@ vim.api.nvim_create_autocmd('FileType', {
         '*.js',
         '*.ts',
         '*.vue',
-        '*.c',
-        '*.cpp',
     },
     callback = function()
         vim.o.shiftwidth = 4
