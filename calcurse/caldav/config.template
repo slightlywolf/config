@@ -1,0 +1,12 @@
+[General]
+Hostname = apidata.googleusercontent.com
+Path = /caldav/v2/nathanharmer0@gmail.com/events/
+AuthMethod = oauth2
+SyncFilter = cal
+DryRun = No
+
+[OAuth2]
+ClientID = 799892108664-q5o5o3btmk5aqmimsrcnnvekgmbrmhr1.apps.googleusercontent.com 
+ClientSecret =  
+Scope = https://www.googleapis.com/auth/calendar
+RedirectURI = http://127.0.0.1
