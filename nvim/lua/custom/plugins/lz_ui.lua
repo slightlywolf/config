@@ -16,7 +16,7 @@ return {
 	},
 
 	{
-		"sindrets/diffview.nvim" ,
+		"sindrets/diffview.nvim",
 		config = function()
 			require("diffview").setup()
 		end
@@ -47,7 +47,7 @@ return {
 	-- the highlighting.
 	{
 		"folke/noice.nvim",
-		enabled = false,
+		enabled = true,
 		event = "VeryLazy",
 		opts = {
 			lsp = {
@@ -123,9 +123,25 @@ return {
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "rcarriga/nvim-notify" },
 
+	{
+		"HiPhish/nvim-ts-rainbow2",
+		config = function()
+			require('nvim-treesitter.configs').setup {
+				rainbow = {
+					enable = true,
+					-- list of languages you want to disable the plugin for
+					disable = { 'jsx', 'cpp' },
+					-- Which query to use for finding delimiters
+					query = 'rainbow-parens',
+					-- Highlight the entire buffer all at once
+					strategy = require('ts-rainbow').strategy.global,
+				}
+			}
+		end
+	},
 
 	-- ui components
-	{ "MunifTanjim/nui.nvim",        lazy = true },
+	{ "MunifTanjim/nui.nvim", lazy = true },
 
 	-- basically nerd tree
 	{
