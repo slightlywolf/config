@@ -125,6 +125,7 @@ return {
 
 	{
 		"HiPhish/nvim-ts-rainbow2",
+		enabled = false,
 		config = function()
 			require('nvim-treesitter.configs').setup {
 				rainbow = {
@@ -166,7 +167,7 @@ return {
 		"xiyaowong/transparent.nvim",
 		init = function()
 			require("transparent").setup({ -- Optional, you don't have to run setup.
-				groups = {        -- table: default groups
+				groups = { -- table: default groups
 					'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
 					'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
 					'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
@@ -177,12 +178,41 @@ return {
 				exclude_groups = {}, -- table: groups you don't want to clear
 			})
 
-			vim.keymap.set('n', '<leader>uT', vim.cmd.TransparentToggle, { desc = '[u]i [T]oggle Transparency' })
+			vim.keymap.set('n', '<leader>uT', vim.cmd.TransparentToggle,
+				{ desc = '[u]i [T]oggle Transparency' })
 			local TransparentByDefault = false
 
 			if (TransparentByDefault) then
 				vim.cmd.TransparentEnable()
 			end
+		end
+	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			{
+				dimming = {
+					alpha = 0.25, -- amount of dimming
+					-- we try to get the foreground from the highlight groups or fallback color
+					color = { "Normal", "#ffffff" },
+					term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
+					inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
+				},
+				context = 15, -- amount of lines we will try to show around the current line
+				treesitter = true, -- use treesitter when available for the filetype
+				-- treesitter is used to automatically expand the visible text,
+				-- but you can further control the types of nodes that should always be fully expanded
+				expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+					"function",
+					"method",
+					"table",
+					"if_statement",
+				},
+				exclude = {}, -- exclude these filetypes
+			}
+		},
+		config = function()
+			vim.keymap.set('n', '<leader> TW', vim.cmd('Twilight'), { desc = '[T][W]ilight' })
 		end
 	},
 	{

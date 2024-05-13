@@ -102,7 +102,7 @@ return
 						if not IsLinux() then
 							config.adapters = {
 								type = "executable",
-								command = "C:\\_dev\\netcoredbg\\netcoredbg.exe",
+								command = "C:\\dev\\netcoredbg\\netcoredbg.exe",
 								args = {
 									"--interpreter=vscode"
 								},
