@@ -211,8 +211,11 @@ return {
 				exclude = {}, -- exclude these filetypes
 			}
 		},
-		config = function()
-			vim.keymap.set('n', '<leader> TW', vim.cmd('Twilight'), { desc = '[T][W]ilight' })
+		init = function()
+			vim.keymap.set('n', '<leader>TW', function()
+				vim.cmd("Twilight")
+			end,
+			{ desc = '[T][W]ilight' })
 		end
 	},
 	{

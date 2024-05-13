@@ -3,7 +3,7 @@
 -- for some reason the backgrounds behind tabs become a different color
 -- with some schemes, the Base2Tone schemes do not have this issue though
 
-vim.o.background = 'light'
+vim.o.background = 'dark'
 vim.o.termguicolors = true
 
 local scheme_whitelist = {
