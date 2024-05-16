@@ -13,7 +13,10 @@
 --
 require("helpers.funcs")
 
-C_set_random_colorscheme(C_all_filter)
+-- SETS A RANDOM COLORSCHEME
+--C_set_random_colorscheme(C_all_filter)
+vim.cmd.colorscheme("catppuccin-mocha")
+
 -- vim.cmd.colorscheme("redstring")
 -- vim.cmd.colorscheme("scorch-contrast")
 
