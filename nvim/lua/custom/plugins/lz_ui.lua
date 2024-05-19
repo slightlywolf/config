@@ -123,7 +123,7 @@ return {
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{ "rcarriga/nvim-notify" },
 
-	{
+	{ -- this plugin causes huge slowdown
 		"HiPhish/nvim-ts-rainbow2",
 		enabled = false,
 		config = function()
@@ -213,9 +213,9 @@ return {
 		},
 		init = function()
 			vim.keymap.set('n', '<leader>TW', function()
-				vim.cmd("Twilight")
-			end,
-			{ desc = '[T][W]ilight' })
+					vim.cmd("Twilight")
+				end,
+				{ desc = '[T][W]ilight' })
 		end
 	},
 	{
