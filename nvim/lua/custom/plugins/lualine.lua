@@ -2,19 +2,22 @@ local function datetime()
 	return os.date('%Y-%m-%d %H:%M', os.time())
 end
 
---
 -- Custom lualine
 return
 {
 	'nvim-lualine/lualine.nvim',
 	opts = {
 		options = {
-			icons_enabled = true,
+			icons_enabled = false,
 			theme = 'auto',
-			component_separators = { left = '', right = '' },
-			section_separators = { left = '', right = '' },
-			-- section_separators = { left = '', right = '' },
-			-- component_separators = { left = '', right = '' },
+			-- for non nerd fonts
+			component_separators = { left = '', right = '' },
+			section_separators = { left = '', right = '' },
+			-- for nerd fonts
+			-- component_separators = { left = '', right = '' },
+			-- section_separators = { left = '', right = '' },
+			-- -- section_separators = { left = '', right = '' },
+			-- -- component_separators = { left = '', right = '' },
 			disabled_filetypes = {
 				statusline = {},
 				winbar = {},
