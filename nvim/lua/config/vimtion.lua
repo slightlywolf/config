@@ -21,7 +21,7 @@ vim.cmd.colorscheme("chocolate-contrast")
 -- vim.cmd.colorscheme("redstring")
 -- vim.cmd.colorscheme("scorch-contrast")
 
-vim.cmd[[highlight guicursor ctermbg=0 guibg=White]]
+vim.cmd [[highlight guicursor ctermbg=0 guibg=White]]
 
 vim.cmd "hi! TermCursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
@@ -40,7 +40,7 @@ vim.o.cursorline = false
 
 -- set the nvim guifont
 -- vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
-vim.opt.guifont = { "GohuFont 14 Nerd Font:h21"}
+vim.opt.guifont = { "GohuFont 14 Nerd Font:h21" }
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
 -- vim.opt.guifont = { "Iosevka Nerd Font:h18"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
@@ -52,7 +52,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.o.colorcolumn = "88"
-vim.cmd[[highlight ColorColumn ctermbg=0 guibg=Black]]
+vim.cmd [[highlight ColorColumn ctermbg=0 guibg=Black]]
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -66,7 +66,7 @@ vim.o.ttimeoutlen = 10
 
 -- Enable break indent
 vim.o.breakindent = true
-vim.keymap.set({'n', 'v'}, '<leader>fI', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
+vim.keymap.set({ 'n', 'v' }, '<leader>fI', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
 
 -- make the cursor a block
 vim.o.guicursor = 'n-v-c-i:block-Cursor'
@@ -102,3 +102,17 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+-- neovide configuration
+if vim.g.neovide then
+	vim.g.neovide_padding_top = 0
+	vim.g.neovide_padding_bottom = 0
+	vim.g.neovide_padding_right = 0
+	vim.g.neovide_padding_left = 0
+
+	vim.g.neovide_position_animation_length = 0.0 -- 0.15
+	vim.g.neovide_scroll_animation_length = 0.0 -- 0.3
+	vim.g.neovide_hide_mouse_when_typing = true
+	vim.g.neovide_theme = 'auto'
+	vim.g.neovide_cursor_animation_length = 0.0 -- 0.13
+	vim.g.neovide_cursor_trail_size = 0.0 -- 0.8
+end
