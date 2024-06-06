@@ -6,7 +6,8 @@ if exists(':GuiFont')
     " Use GuiFont! to ignore font errors
     " GuiFont 'ProggyClean Nerd Font':h16
     " GuiFont 'GohuFont 11 Nerd Font':h17
-    GuiFont 'GohuFont 14 Nerd Font':h21
+    " GuiFont 'GohuFont 14 Nerd Font':h21
+    GuiFont 'UnifontExMono':h24
     " GuiFont 'JetBrainsMono Nerd Font':h18
 endif
 
