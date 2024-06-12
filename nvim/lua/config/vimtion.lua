@@ -13,11 +13,13 @@
 --
 require("helpers.funcs")
 
+--vim.cmd.colorscheme("chocolate-contrast")
+vim.cmd.colorscheme(vim.g.BackupColorschemeName)
 -- SETS A RANDOM COLORSCHEME
--- C_set_random_colorscheme(C_all_filter)
---vim.cmd.colorscheme("catppuccin-mocha")
-vim.cmd.colorscheme("chocolate-contrast")
-
+if(vim.g.RandomSchemeOnStartup) then
+	C_set_random_colorscheme(C_all_filter)
+end
+-- vim.cmd.colorscheme("catppuccin-mocha")
 -- vim.cmd.colorscheme("redstring")
 -- vim.cmd.colorscheme("scorch-contrast")
 

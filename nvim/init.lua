@@ -1,12 +1,14 @@
 ----------------------------------------------------------------------------------------
 -- NATHAN CONFIG 23-08-23
+-- Quick Settings
 ----------------------------------------------------------------------------------------
-vim.g.nvim_tree_show_icons = {
-	folders = 0,
-	files = 0,
-	git = 0,
-	folder_arrows = 0,
-}
+vim.g.RandomSchemeOnFileOpen = false
+vim.g.RandomSchemeOnStartup = true
+
+-- backup scheme
+vim.g.BackupColorschemeName = "chocolate-contrast"
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 
 -- uses nvim tree
 vim.g.loaded_netrw = 1

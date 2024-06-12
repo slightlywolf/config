@@ -133,7 +133,7 @@ require('lazy').setup(
 		},
 
 		-- "gc" to comment visual regions/lines
-		{ 'numToStr/Comment.nvim',   enabled = true,   opts = {},                                   lazy = false },
+		{ 'numToStr/Comment.nvim', enabled = true, opts = {}, lazy = false },
 
 
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.
