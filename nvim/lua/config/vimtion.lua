@@ -42,7 +42,8 @@ vim.o.cursorline = false
 
 -- set the nvim guifont
 -- vim.opt.guifont = { "GohuFont 11 Nerd Font:h17"}
-vim.opt.guifont = { "UnifontExMono:h24"}
+-- vim.opt.guifont = { "UnifontExMono:h24"}
+vim.opt.guifont = { "Monaspace Radon:h24"}
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
 -- vim.opt.guifont = { "Iosevka Nerd Font:h18"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
@@ -117,5 +118,5 @@ if vim.g.neovide then
 	vim.g.neovide_theme = 'auto'
 	vim.g.neovide_cursor_animation_length = 0.0 -- 0.13
 	vim.g.neovide_cursor_trail_size = 0.0 -- 0.8
-	vim.opt.guifont = { "UnifontExMono:h24"}
+	vim.opt.guifont = { "Monaspace Radon:h24"}
 end
