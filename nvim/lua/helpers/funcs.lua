@@ -9,6 +9,8 @@ vim.o.termguicolors = true
 local scheme_whitelist = {
 	--"fox",
 	"Base2Tone",
+	"contrast",
+	"Contrast",
 	-- "light",
 	-- "monokai-soda",
 	-- "duskfox",
@@ -23,8 +25,8 @@ local scheme_blacklist = {
 	-- "pleasant",
 	--
 	--
-	-- "light",
-	-- "Light",
+	"light",
+	"Light",
 	-- "flight",
 	
 	-- other themes
@@ -53,13 +55,6 @@ local other_color_filters = {
 
 		return false
 	end,
-	function(colorscheme_name) -- contrast
-		if string.find(colorscheme_name, "Base2Tone") then
-			return true
-		end
-
-		return false
-	end
 }
 
 -- ##############################################################################
