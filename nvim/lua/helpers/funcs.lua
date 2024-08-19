@@ -57,32 +57,6 @@ local other_color_filters = {
 	end,
 }
 
--- ##############################################################################
--- disable background
--- this is my terrible hack, use transparent.nvim from now on
-function Disable_Background()
-	-- vim.api.nvim_set_hl(0, "Normal", {guibg=NONE, ctermbg=NONE})
-	--
-	-- -- disable the end of buffer highlighting
-	-- vim.cmd "autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE"
-	--
-	-- -- disable the background for tabs
-	-- vim.api.nvim_set_hl(0, "SpecialKey", {guibg=NONE, ctermbg=NONE})
-	--
-	-- -- disable the background for the signcolumn
-	-- vim.api.nvim_set_hl(0, "SignColumn", {guibg=NONE, ctermbg=NONE})
-	--
-	-- -- disable the background for the signcolumn
-	-- vim.api.nvim_set_hl(0, "NonText", {guibg=NONE, ctermbg=NONE})
-	--
-	-- -- disable the background for comments
-	-- vim.api.nvim_set_hl(0, "Comment", {guibg=NONE, ctermbg=NONE})
-end
-
-vim.api.nvim_create_user_command('DisableBackground', Disable_Background, {})
-
-
-
 function C_filter_copy_array(arr, func)
 	local ret_schemes = {}
 
@@ -109,18 +83,21 @@ function C_get_random_colorscheme(filter_func)
 
 	local rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
 
-	if rand_scheme == vim.g.colors_name and #colors_to_use > 1 then
+	local tries = 0
+	while (rand_scheme == vim.g.colors_name and #colors_to_use > 1 and tries < 10)  do
+		--
 		-- if there is more than one color than
 
-		local current_scheme = vim.g.colors_name
-		local key_of_current_scheme = get_key_for_value(colors_to_use, current_scheme)
-
-		if colors_to_use[key_of_current_scheme] then -- if in the list
-			table.remove(colors_to_use, key_of_current_scheme)
-		end
-
-		-- pick a different scheme
+		-- local current_scheme = vim.g.colors_name
+		-- local key_of_current_scheme = get_key_for_value(colors_to_use, current_scheme)
+		--
+		-- if colors_to_use[key_of_current_scheme] then -- if in the list
+		-- 	table.remove(colors_to_use, key_of_current_scheme)
+		-- end
+		--
+		-- -- pick a different scheme
 		rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
+		tries = tries + 1
 	end
 
 	return rand_scheme
@@ -131,7 +108,8 @@ function C_get_random_colorscheme_list(filter_func)
 	local func_to_use = filter_func or C_all_filter
 
 	local my_colors = vim.fn.getcompletion("", "color")
-	local colors_to_use = C_filter_copy_array(my_colors, func_to_use)
+	-- local colors_to_use = C_filter_copy_array(my_colors, func_to_use)
+	local colors_to_use = my_colors
 
 	return colors_to_use
 end

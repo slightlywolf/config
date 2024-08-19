@@ -2,6 +2,7 @@ return {
 	-- file explorer
 	{
 		"nacro90/numb.nvim",
+		enabled = false,
 		config = function()
 			require('numb').setup()
 		end,
@@ -9,6 +10,7 @@ return {
 	-- marking
 	{
 		'chentoast/marks.nvim',
+		enabled = false,
 		config = function()
 			require 'marks'.setup {
 				-- whether to map keybinds or not. default true

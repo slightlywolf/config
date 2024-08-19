@@ -2,6 +2,7 @@ return
 {
 	{
 		'toppair/peek.nvim',
+		enabled = false,
 		opts =
 		{
 			run = 'deno task --quiet build:fast'

@@ -1,3 +1,5 @@
+
+
 local function my_on_attach(bufnr)
 	local api = require "nvim-tree.api"
 
@@ -16,6 +18,7 @@ end
 -- basically nerd tree
 return {
 	"nvim-tree/nvim-tree.lua",
+	enabled = false,
 	init = function()
 		local api = require "nvim-tree.api"
 		local conf = require "nvim-tree"

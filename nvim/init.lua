@@ -6,13 +6,13 @@ vim.g.RandomSchemeOnFileOpen = false
 vim.g.RandomSchemeOnStartup = true
 
 -- backup scheme
-vim.g.BackupColorschemeName = "chocolate-contrast"
+vim.g.BackupColorschemeName = "default"
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 
 -- uses nvim tree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '

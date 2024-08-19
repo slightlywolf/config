@@ -65,22 +65,26 @@ require('lazy').setup(
 		-- Useful plugin to show you pending keybinds.
 		{
 			"folke/which-key.nvim",
-			event = "VeryLazy",
-			init  = function()
+			requires = {
+				"nvim-tree/nvim-web-devicons",
+				"echasonovski/mini.icons" },
+
+			event    = "VeryLazy",
+			init     = function()
 				vim.o.timeout = false
 				vim.o.timeoutlen = 0
 			end,
-			opts  = {
+			opts     = {
+				notify = false,
 				-- your configuration comes here
 				-- or leave it empty to use the default settings
 				-- refer to the configuration section below
-				window = {
-					border = "none", -- none, single, double, shadow
-					position = "bottom", -- bottom, top
-					margin = { 0, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
+				win = {
+					no_overlap = false,
 					padding = { 0, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
-					winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
-					zindex = 1000, -- positive value to position WhichKey above other floating windows.
+					title = true,
+					title_pos = "center",
+
 				},
 				layout = {
 					height = { min = 4, max = 50 }, -- min and max height of the columns
@@ -105,15 +109,15 @@ require('lazy').setup(
 			},
 		},
 
-		{
-			"folke/todo-comments.nvim",
-			requires = "nvim-lua/plenary.nvim",
-			config = function()
-				require("todo-comments").setup {
-					signs = false
-				}
-			end
-		},
+		-- {
+		-- 	"folke/todo-comments.nvim",
+		-- 	requires = "nvim-lua/plenary.nvim",
+		-- 	config = function()
+		-- 		require("todo-comments").setup {
+		-- 			signs = false
+		-- 		}
+		-- 	end
+		-- },
 
 		{
 			-- Add indentation guides even on blank lines

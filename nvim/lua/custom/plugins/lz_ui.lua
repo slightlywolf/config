@@ -17,6 +17,7 @@ return {
 
 	{
 		"sindrets/diffview.nvim",
+		enabled = false,
 		config = function()
 			require("diffview").setup()
 		end
@@ -24,6 +25,7 @@ return {
 
 	{
 		'petertriho/nvim-scrollbar',
+		enabled = false,
 		config = function()
 			require("scrollbar").setup()
 		end
@@ -32,6 +34,7 @@ return {
 	{
 		{
 			"folke/todo-comments.nvim",
+			enabled = false,
 			dependencies = { "nvim-lua/plenary.nvim" },
 			opts = {
 				-- your configuration comes here
@@ -148,6 +151,7 @@ return {
 	-- basically nerd tree
 	{
 		"nvim-tree/nvim-tree.lua",
+		enabled = false,
 		init = function()
 			require("nvim-tree").setup({
 				sort_by = "case_sensitive",
@@ -190,6 +194,7 @@ return {
 	},
 	{
 		"folke/twilight.nvim",
+		enabled = false,
 		opts = {
 			{
 				dimming = {
@@ -221,6 +226,7 @@ return {
 	},
 	{
 		"folke/zen-mode.nvim",
+		enabled = false,
 		opts =
 		{
 			window = {

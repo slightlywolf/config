@@ -31,9 +31,6 @@ vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! Cursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! CursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
--- disable background
-Disable_Background()
-
 --
 -- Set highlight on search
 vim.o.hlsearch = true

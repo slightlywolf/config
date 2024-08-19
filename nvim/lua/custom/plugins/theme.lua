@@ -1,6 +1,7 @@
 return {
 	{
 		"kartikp10/noctis.nvim",
+		enabled = false,
 		dependencies =
 		{
 			-- Automatically install LSPs to stdpath for neovim
@@ -9,6 +10,7 @@ return {
 	},
 	{
 		"catppuccin/nvim",
+		enabled = false,
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
@@ -63,17 +65,33 @@ return {
 		end
 	},
 
-	{ "bignimbus/pop-punk.vim", },
-	{ "tpope/vim-vividchalk" },
-	{ "nanotech/jellybeans.vim" },
+	{ "bignimbus/pop-punk.vim",
+		enabled = false,
+	},
+	{ "tpope/vim-vividchalk",
+		enabled = false,
+	},
+	{ "nanotech/jellybeans.vim",
+		enabled = false,
+	},
 
-	{ 'gmist/vim-palette' },
-	{ 'rainglow/vim' },
-	{ 'aditya-azad/candle-grey', },
-	{ 'daviddavis/vim-colorpack' },
+	{ 'gmist/vim-palette',
+		enabled = false,
+
+	},
+	{ 'rainglow/vim',
+		enabled = false,
+	},
+	{ 'aditya-azad/candle-grey',
+		enabled = false,
+	},
+	{ 'daviddavis/vim-colorpack',
+		enabled = false
+	},
 
 	{
 		"EdenEast/nightfox.nvim",
+		enabled = false,
 		priority = 1000,
 		config = function()
 			require('nightfox').setup({
@@ -151,7 +169,8 @@ return {
 		opts = {},
 	},
 	{
-		"bradcush/nvim-base16"
+		"bradcush/nvim-base16",
+		enabled = false,
 	}
 
 }
