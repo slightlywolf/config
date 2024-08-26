@@ -31,6 +31,61 @@ vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! Cursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! CursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
+-- netrw settings
+vim.g.netrw_keepdir = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_localcopydircmd = 'cp -r'
+--
+vim.g.netrw_altv = 1
+vim.g.netrw_browse_split = 4 -- Open files in previous window. This emulates the typical "drawer" behavior
+vim.g.netrw_liststyle = 3 -- Set the styling of the file list to be that of a tree
+vim.g.netrw_winsize = -23 -- Set the width of the "drawer"
+vim.g.netrw_clipboard = 0
+vim.g.netrw_fastbrowse = 2
+
+
+vim.cmd "hi! link netrwMarkFile Search"
+
+vim.keymap.set({ 'n', 'v' }, '<leader>fI', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
+
+-- Remove all empty "No Name" buffers that are unmodified
+local function clean_empty_bufs()
+	for _, buf in pairs(vim.api.nvim_list_bufs()) do
+        if
+            vim.api.nvim_buf_get_name(buf) == ""
+            and not vim.api.nvim_buf_get_option(buf, "modified")
+            and vim.api.nvim_buf_is_loaded(buf)
+        then
+            vim.api.nvim_buf_delete(buf, {})
+        end
+	end
+end
+
+-- Clean up netrw's empty buffer artifacts and let that logic toggle it
+local function toggle_netrw()
+	clean_empty_bufs()
+	local flag = false
+	for _, buf in pairs(vim.api.nvim_list_bufs()) do
+        local e, v = pcall(function()
+            return vim.api.nvim_buf_get_var(buf, "current_syntax")
+        end)
+        if
+            (e and v == "netrwlist")
+            and not vim.api.nvim_buf_get_option(buf, "modified")
+            and vim.api.nvim_buf_is_loaded(buf)
+        then
+            flag = true
+            vim.api.nvim_buf_delete(buf, {})
+        end
+	end
+
+	if not flag then
+		vim.cmd(":Lexplore")
+	end
+end
+
+
+
 --
 -- Set highlight on search
 vim.o.hlsearch = true

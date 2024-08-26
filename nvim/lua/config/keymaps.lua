@@ -133,6 +133,24 @@ for _, key in ipairs(keys) do
   vim.keymap.set('n', key[1], key[2], { desc = key["desc"] })
 end
 
+-- set in netrw as well
+-- set keybindings for netrw
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = {
+		'netrw',
+	},
+	callback = function()
+		vim.keymap.set({ 'n' }, '<leader>L', function()
+			vim.cmd('Lexplore')
+		end, { desc = "Close Netrw" })
+
+		for _, key in ipairs(keys) do
+		vim.keymap.set('n', key[1], key[2], { desc = key["desc"] })
+		end
+
+	end,
+})
+
 
 -- vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 -- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })

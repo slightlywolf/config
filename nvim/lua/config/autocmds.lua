@@ -1,4 +1,5 @@
 require("helpers.funcs")
+local Util = require("util.init")
 
 
 local function augroup(name)
@@ -49,6 +50,7 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.opt.foldmethod = 'indent'
 	end,
 })
+
 
 -- filetype aliases
 vim.filetype.add { extension = { xaml = 'xml' } }
