@@ -37,9 +37,16 @@ vim.g.netrw_banner = 0
 vim.g.netrw_localcopydircmd = 'cp -r'
 --
 vim.g.netrw_altv = 1
-vim.g.netrw_browse_split = 4 -- Open files in previous window. This emulates the typical "drawer" behavior
-vim.g.netrw_liststyle = 3 -- Set the styling of the file list to be that of a tree
-vim.g.netrw_winsize = -23 -- Set the width of the "drawer"
+--
+--
+-- Open files in previous window. This emulates the typical "drawer" behavior
+--vim.g.netrw_browse_split = 4
+
+-- Set the styling of the file list to be that of a tree
+vim.g.netrw_liststyle = 3 
+
+vim.g.netrw_winsize = -25 -- Set the width of the "drawer"
+
 vim.g.netrw_clipboard = 0
 vim.g.netrw_fastbrowse = 2
 
