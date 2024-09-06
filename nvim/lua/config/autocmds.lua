@@ -51,7 +51,6 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 
-
 -- filetype aliases
 vim.filetype.add { extension = { xaml = 'xml' } }
 
