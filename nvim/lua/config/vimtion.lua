@@ -43,7 +43,7 @@ vim.g.netrw_altv = 1
 --vim.g.netrw_browse_split = 4
 
 -- Set the styling of the file list to be that of a tree
-vim.g.netrw_liststyle = 3 
+vim.g.netrw_liststyle = 1
 
 vim.g.netrw_winsize = -25 -- Set the width of the "drawer"
 
