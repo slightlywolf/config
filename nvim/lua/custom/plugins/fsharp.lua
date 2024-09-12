@@ -1,3 +1,3 @@
 return {
-	'ionide/Ionide-vim'
+	-- 'ionide/Ionide-vim' this is replaced with FsAutoComplete from mason
 }

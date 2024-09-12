@@ -3,10 +3,6 @@ vim.o.termguicolors = true
 
 local scheme_blacklist = { }
 
-local other_color_filters = {
-	ColorIsBlackListed,
-	NoDefaultTheme,
-}
 
 function C_filter_copy_array(arr, func)
 	local ret_schemes = {}
@@ -30,7 +26,7 @@ end
 function C_get_random_colorscheme(filter_func)
 	-- every colorscheme should be valid
 	math.randomseed(os.time())
-	local colors_to_use = C_get_random_colorscheme_list(filter_func)
+	local colors_to_use = C_get_random_colorscheme_list()
 
 	local rand_scheme = colors_to_use[math.ceil(#colors_to_use * math.random())]
 
@@ -55,8 +51,8 @@ function C_get_random_colorscheme(filter_func)
 end
 
 -- gets the list of colorschemes to pick from
-function C_get_random_colorscheme_list(filter_func)
-	local func_to_use = filter_func or C_all_filter
+function C_get_random_colorscheme_list()
+	local func_to_use = C_all_filter
 
 	local my_colors = vim.fn.getcompletion("", "color")
 	local colors_to_use = C_filter_copy_array(my_colors, func_to_use)
@@ -67,8 +63,7 @@ function C_get_random_colorscheme_list(filter_func)
 end
 
 function C_print_colorscheme_list(filter_func)
-	local schemes = C_get_random_colorscheme_list(filter_func)
-	vim.print(schemes)
+	local schemes = C_get_random_colorscheme_list()
 end
 
 function SetRandomColorScheme(filter_func)
@@ -88,17 +83,6 @@ function C_set_random_colorscheme(filter_func)
 		SetRandomColorScheme(filter_func)
 	end
 end
-
--- combines a large number of filters into one
-function C_all_filter(colorscheme_name)
-	for _, colorfilter in ipairs(other_color_filters) do
-		if not colorfilter(colorscheme_name) then
-			return false
-		end
-	end
-	return true
-end
-
 -- ------------------------------------------------------------------------------------
 -- Filters
 -- ------------------------------------------------------------------------------------
@@ -107,11 +91,11 @@ end
 function ColorIsBlackListedPartial(colorscheme_name)
 	for _, v in ipairs(scheme_blacklist) do
 		if string.find(colorscheme_name, v) or colorscheme_name == v then
-			return true
+			return false
 		end
 	end
 
-	return false
+	return true
 end
 
 function ColorIsBlackListed(colorscheme_name)
@@ -152,6 +136,7 @@ local default_theme_list = {
 	"zaibatsu",
 	"zellner"
 }
+-- ------------------------------------------------------------------------------------
 
 function NoDefaultTheme(colorscheme_name)
 	for _, v in ipairs(default_theme_list) do
@@ -160,6 +145,21 @@ function NoDefaultTheme(colorscheme_name)
 		end
 	end
 
+	return true
+end
+
+local other_color_filters = {
+	ColorIsBlackListed,
+	NoDefaultTheme,
+}
+
+-- combines a large number of filters into one
+function C_all_filter(colorscheme_name)
+	for _, colorfilter in ipairs(other_color_filters) do
+		if not colorfilter(colorscheme_name) then
+			return false
+		end
+	end
 	return true
 end
 
