@@ -156,7 +156,7 @@ return {
 				transparent = false,
 				colors = {},
 				overrides = {},
-				theme = "light", -- default, based on vim.o.background, alternatives: "light", "dark"
+				--theme = "light", -- default, based on vim.o.background, alternatives: "light", "dark"
 				contrast = "high", -- default, alternatives: "medium", "high"
 			})
 		end,
