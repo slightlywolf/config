@@ -7,6 +7,8 @@ vim.g.RandomSchemeOnStartup = true
 
 -- backup scheme
 vim.g.BackupColorschemeName = "default"
+---
+vim.g.have_nerd_font = false
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 
@@ -51,10 +53,10 @@ pcall(require("telescope").load_extension, 'fzf')
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vim', 'c_sharp' },
+    ensure_installed = { },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
     highlight = { enable = true },
     indent = { enable = true, disable = { 'python' } },
