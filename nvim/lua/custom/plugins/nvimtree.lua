@@ -18,7 +18,7 @@ end
 -- basically nerd tree
 return {
 	"nvim-tree/nvim-tree.lua",
-	enabled = false,
+	enabled = true,
 	init = function()
 		local api = require "nvim-tree.api"
 		local conf = require "nvim-tree"

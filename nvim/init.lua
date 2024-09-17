@@ -13,8 +13,8 @@ vim.g.have_nerd_font = false
 ----------------------------------------------------------------------------------------
 
 -- uses nvim tree
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
