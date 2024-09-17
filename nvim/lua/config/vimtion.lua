@@ -164,6 +164,10 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+vim.o.errorbells = false
+vim.o.vb = false
+vim.o.belloff = 'all'
+
 
 -- neovide configuration
 if vim.g.neovide then
@@ -179,5 +183,5 @@ if vim.g.neovide then
 	vim.g.neovide_cursor_animation_length = 0.0 -- 0.13
 	vim.g.neovide_cursor_trail_size = 0.0 -- 0.8
 	-- vim.opt.guifont = { "Monaspace Radon:h24"}
-	vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h14.5"}
+	vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
 end
