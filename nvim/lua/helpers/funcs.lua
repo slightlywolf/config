@@ -3,7 +3,6 @@ vim.o.termguicolors = true
 
 local scheme_blacklist = { }
 
-
 function C_filter_copy_array(arr, func)
 	local ret_schemes = {}
 
@@ -138,6 +137,7 @@ local default_theme_list = {
 }
 -- ------------------------------------------------------------------------------------
 
+
 function NoDefaultTheme(colorscheme_name)
 	for _, v in ipairs(default_theme_list) do
 		if colorscheme_name == v then
@@ -148,9 +148,18 @@ function NoDefaultTheme(colorscheme_name)
 	return true
 end
 
-local other_color_filters = {
+function OnlyDefaultTheme(scheme)
+	return not(NoDefaultTheme(scheme))
+end
+
+local other_color_filters_ = {
 	ColorIsBlackListed,
 	NoDefaultTheme,
+}
+
+local other_color_filters = {
+	OnlyDefaultTheme,
+	ColorIsBlackListed,
 }
 
 -- combines a large number of filters into one

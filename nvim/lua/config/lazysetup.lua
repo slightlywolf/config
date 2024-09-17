@@ -31,6 +31,24 @@ require('lazy').setup(
 				}
 			end
 		},
+		{
+			'j-hui/fidget.nvim',
+			config = function()
+				local fidget = require('fidget')
+
+				fidget.setup({
+					progress = {
+						ignore_done_already = true,
+						ignore_empty_message = true,
+						display = {
+							render_limit = 0, -- disable lots of the shitty messages
+							done_ttl = 1,
+							done_icon = '@'
+						},
+					},
+				})
+			end
+		},
 		--
 		-- NOTE: This is where your plugins related to LSP can be installed.
 		--  The configuration is done below. Search for lspconfig to find it below.
@@ -44,11 +62,6 @@ require('lazy').setup(
 
 				-- Useful status updates for LSP
 				-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-				{
-					'j-hui/fidget.nvim',
-					tag = "legacy",
-					opts = {},
-				},
 
 				-- Additional lua configuration, makes nvim stuff amazing!
 				'folke/neodev.nvim',

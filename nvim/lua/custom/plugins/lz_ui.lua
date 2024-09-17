@@ -125,7 +125,8 @@ return {
 	-- icons
 	-- if no nerd font
 	-- { "nvim-tree/nvim-web-devicons", lazy = true },
-	{ "rcarriga/nvim-notify" },
+
+	{ "rcarriga/nvim-notify", enabled = false },
 
 	{ -- this plugin causes huge slowdown
 		"HiPhish/nvim-ts-rainbow2",
