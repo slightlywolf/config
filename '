@@ -1,6 +1,0 @@
-module revlt.RevMonitor.Commands 
-
-open System.CommandLine
-
-let GetCommands: Command = 
-	Command("revmonitor", "Load Test RevMonitor")
