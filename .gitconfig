@@ -1,0 +1,7 @@
+# Git Settings that you should probably set
+#
+# Set these settings
+# alias vimdiff='nvim -d'
+
+[merge]
+	tool = nvimdiff
