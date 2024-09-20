@@ -23,8 +23,8 @@ end
 -- vim.cmd.colorscheme("redstring")
 -- vim.cmd.colorscheme("scorch-contrast")
 
-vim.cmd [[highlight guicursor ctermbg=0 guibg=White]]
-
+-- vim.cmd [[highlight guicursor ctermbg=0 guibg=White]]
+--
 vim.cmd "hi! TermCursor guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 vim.cmd "hi! TermCursorNC guifg=#000000 guibg=#FFBF00 gui=NONE cterm=NONE"
 
@@ -51,7 +51,7 @@ vim.g.netrw_clipboard = 0
 vim.g.netrw_fastbrowse = 2
 
 
-vim.cmd "hi! link netrwMarkFile Search"
+-- vim.cmd "hi! link netrwMarkFile Search"
 
 vim.keymap.set({ 'n', 'v' }, '<leader>fI', require('guess-indent').set_from_buffer, { desc = "fix [I]ndent" })
 
@@ -104,7 +104,7 @@ vim.o.cursorline = false
 -- vim.opt.guifont = { "UnifontExMono:h24"}
 -- vim.opt.guifont = { "Monaspace Radon:h24"}
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
-vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h14.5"}
+vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
 -- vim.opt.guifont = { "Iosevka Nerd Font:h18"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
 -- vim.opt.guifont = { "JetBrainsMono Nerd Font:h18"}

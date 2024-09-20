@@ -35,6 +35,13 @@ vim.keymap.set({'n', 'v'}, '<leader>Y', '"*Y', { desc = "[Y]ank" })
 vim.keymap.set({'n', 'v'}, '<leader>P', '"+P', { desc = "[P]aste" })
 vim.keymap.set({'n', 'v'}, '<leader>P', '"*P', { desc = "[P]aste" })
 
+-- expandtab toggle
+vim.keymap.set({'n', 'v'}, '<leader>ET', 
+	function()
+		vim.o.expandtab = not vim.o.expandtab
+		vim.print("expandtab: " .. tostring(vim.inspect(vim.o.expandtab)))
+	end, { desc = "[e]xpand [t]ab" })
+
 
 local keys = {
 	{ "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
