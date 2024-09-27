@@ -114,7 +114,7 @@ vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
 vim.wo.number = true
 vim.wo.relativenumber = true
 
-vim.o.colorcolumn = "88"
+vim.o.colorcolumn = "88,120"
 vim.cmd [[highlight ColorColumn ctermbg=0 guibg=Black]]
 
 -- Enable mouse mode
