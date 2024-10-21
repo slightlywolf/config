@@ -20,8 +20,6 @@ if(vim.g.RandomSchemeOnStartup) then
 	C_set_random_colorscheme(C_all_filter)
 end
 -- vim.cmd.colorscheme("catppuccin-mocha")
--- vim.cmd.colorscheme("redstring")
--- vim.cmd.colorscheme("scorch-contrast")
 
 -- vim.cmd [[highlight guicursor ctermbg=0 guibg=White]]
 --

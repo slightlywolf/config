@@ -1,4 +1,3 @@
-vim.o.background = 'light'
 vim.o.termguicolors = true
 
 local scheme_blacklist = { }

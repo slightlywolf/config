@@ -3,15 +3,15 @@
 -- Quick Settings
 ----------------------------------------------------------------------------------------
 vim.g.RandomSchemeOnFileOpen = false
-vim.g.RandomSchemeOnStartup = true
+vim.g.RandomSchemeOnStartup = false
 
 -- backup scheme
-vim.g.BackupColorschemeName = "default"
+vim.g.BackupColorschemeName = "everforest"
+vim.o.background = 'dark'
 ---
 vim.g.have_nerd_font = false
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
-
 -- uses nvim tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
