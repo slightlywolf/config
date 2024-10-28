@@ -10,20 +10,42 @@ return {
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
+			require('github-theme').setup({
+				options = {
+					styles = {
+						comments = 'italic',
+						keywords = 'bold',
+						types = 'italic,bold',
+					}
+				}
+			})
 		end,
 	},
 
 	{
+		"slugbyte/lackluster.nvim",
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		init = function()
+			-- vim.cmd.colorscheme("lackluster-hack") -- my favorite
+			-- vim.cmd.colorscheme("lackluster-mint")
+		end,
+	},
+	{ "fcpg/vim-farout" },
+	{
 		"neanias/everforest-nvim",
+		enabled = false,
 		version = false,
 		lazy = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("everforest").setup({
+				background = 'hard',
 				-- Your config here
 			})
-			vim.cmd('colorscheme everforest')
 		end,
-	}
+	},
+	{ "rose-pine/neovim", name = "rose-pine", enabled = false }
 }

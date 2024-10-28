@@ -6,7 +6,9 @@ vim.g.RandomSchemeOnFileOpen = false
 vim.g.RandomSchemeOnStartup = false
 
 -- backup scheme
-vim.g.BackupColorschemeName = "everforest"
+--vim.g.BackupColorschemeName = "github_dark_default"
+-- vim.g.BackupColorschemeName = "lackluster-dark"
+vim.g.BackupColorschemeName = "farout"
 vim.o.background = 'dark'
 ---
 vim.g.have_nerd_font = false
