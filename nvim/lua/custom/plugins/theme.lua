@@ -33,6 +33,11 @@ return {
 		end,
 	},
 	{ "fcpg/vim-farout" },
+	{ "projekt0n/caret.nvim" },
+	{ "n1ghtmare/noirblaze-vim" },
+	{ "nikolvs/vim-sunbather" },
+	{ "ntk148v/komau.vim" },
+	{ "andreasvc/vim-256noir" },
 	{
 		"neanias/everforest-nvim",
 		enabled = false,
