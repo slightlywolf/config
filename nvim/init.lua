@@ -8,8 +8,9 @@ vim.g.RandomSchemeOnStartup = false
 -- backup scheme
 --vim.g.BackupColorschemeName = "github_dark_default"
 -- vim.g.BackupColorschemeName = "lackluster-dark"
-vim.g.BackupColorschemeName = "caret"
-vim.o.background = 'dark'
+-- vim.g.BackupColorschemeName = "elflord" best default dark scheme
+-- vim.g.BackupColorschemeName = "farout"
+-- vim.o.background = 'light'
 ---
 vim.g.have_nerd_font = false
 ----------------------------------------------------------------------------------------
