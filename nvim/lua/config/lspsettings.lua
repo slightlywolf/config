@@ -74,6 +74,17 @@ local servers = {
 			telemetry = { enable = false },
 		},
 	},
+	-- ionide = {
+	-- 	IonideNvimSettings = {
+	-- 	},
+	-- 	-- cmd = {
+	-- 	-- 	vim.fs.normalize(vim.fn.stdpath("data").."/mason/bin/fsautocomplete.cmd"),
+	-- 	-- },
+	-- 	settings = {
+	-- 	FSharp = {
+	-- 	},
+	-- 	},
+	-- },
 }
 
 -- Setup neovim lua configuration
@@ -146,5 +157,7 @@ cmp.setup {
 	sources = {
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
+		{ name = 'buffer' },
+		{ name = 'vsnip' },
 	},
 }
