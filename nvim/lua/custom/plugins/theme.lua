@@ -33,24 +33,4 @@ return {
 		end,
 	},
 	{ "fcpg/vim-farout" },
-	{ "projekt0n/caret.nvim" },
-	{ "n1ghtmare/noirblaze-vim" },
-	{ "nikolvs/vim-sunbather" },
-	{ "ntk148v/komau.vim" },
-	{ "andreasvc/vim-256noir" },
-	{
-		"neanias/everforest-nvim",
-		enabled = false,
-		version = false,
-		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
-		config = function()
-			require("everforest").setup({
-				background = 'hard',
-				-- Your config here
-			})
-		end,
-	},
-	{ "rose-pine/neovim", name = "rose-pine", enabled = false }
 }
