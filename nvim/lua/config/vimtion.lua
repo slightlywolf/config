@@ -14,8 +14,7 @@
 require("helpers.funcs")
 
 --vim.cmd.colorscheme("chocolate-contrast")
---vim.cmd.colorscheme(vim.g.BackupColorschemeName)
-
+vim.cmd.colorscheme(vim.g.BackupColorschemeName)
 -- SETS A RANDOM COLORSCHEME
 if(vim.g.RandomSchemeOnStartup) then
 	C_set_random_colorscheme(C_all_filter)
@@ -103,7 +102,7 @@ vim.o.cursorline = false
 -- vim.opt.guifont = { "UnifontExMono:h24"}
 -- vim.opt.guifont = { "Monaspace Radon:h24"}
 -- vim.opt.guifont = { "Iosevka Nerd Font Mono:h11"}
--- vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
+vim.opt.guifont = { "BigBlueTerm437 Nerd Font:h18"}
 -- vim.opt.guifont = { "Iosevka Nerd Font:h18"}
 -- vim.opt.guifont = { "CaskaydiaCove Nerd Font Mono:h16"}
 -- vim.opt.guifont = { "JetBrainsMono Nerd Font:h18"}
@@ -114,7 +113,7 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.o.colorcolumn = "88,120"
--- vim.cmd [[highlight ColorColumn ctermbg=0 guibg=Black]]
+vim.cmd [[highlight ColorColumn ctermbg=0 guibg=Black]]
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
