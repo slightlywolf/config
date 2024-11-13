@@ -14,7 +14,7 @@
 require("helpers.funcs")
 
 --vim.cmd.colorscheme("chocolate-contrast")
---vim.cmd.colorscheme(vim.g.BackupColorschemeName)
+vim.cmd.colorscheme("slate")
 
 -- SETS A RANDOM COLORSCHEME
 if(vim.g.RandomSchemeOnStartup) then

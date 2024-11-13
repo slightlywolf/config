@@ -163,7 +163,7 @@ local other_color_filters = {
 
 -- combines a large number of filters into one
 function C_all_filter(colorscheme_name)
-	for _, colorfilter in ipairs(other_color_filters_) do
+	for _, colorfilter in ipairs(other_color_filters) do
 		if not colorfilter(colorscheme_name) then
 			return false
 		end
