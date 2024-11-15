@@ -25,15 +25,15 @@ vim.keymap.set('n', '<leader>dd', vim.diagnostic.setloclist, { desc = "Open diag
 ----------------------------------------------------------------------------------------
 -- copy and pasting to system clipboard
 ----------------------------------------------------------------------------------------
-vim.keymap.set({'n', 'v'}, '<leader>y', '"+y', { desc = "[y]ank" })
-vim.keymap.set({'n', 'v'}, '<leader>y', '"*y', { desc = "[y]ank" })
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+ygv"*y', { desc = "[y]ank" })
+-- vim.keymap.set({'n', 'v'}, '<leader>y', '"*y', { desc = "[y]ank" })
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p', { desc = "[p]aste" })
-vim.keymap.set({'n', 'v'}, '<leader>p', '"*p', { desc = "[p]aste" })
+-- vim.keymap.set({'n', 'v'}, '<leader>p', '"*p', { desc = "[p]aste" })
 
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y', { desc = "[Y]ank" })
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"*Y', { desc = "[Y]ank" })
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Ygv"*Y', { desc = "[Y]ank+*" })
 vim.keymap.set({'n', 'v'}, '<leader>P', '"+P', { desc = "[P]aste" })
-vim.keymap.set({'n', 'v'}, '<leader>P', '"*P', { desc = "[P]aste" })
+-- vim.keymap.set({'n', 'v'}, '<leader>Y', '"*Ygv"*Y', { desc = "[Y]ank*" })
+-- vim.keymap.set({'n', 'v'}, '<leader>P', '"*Pgv"*Y', { desc = "[P]aste" })
 
 -- expandtab toggle
 vim.keymap.set({'n', 'v'}, '<leader>ET', 
