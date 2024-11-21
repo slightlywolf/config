@@ -3,7 +3,7 @@
 -- Quick Settings
 ----------------------------------------------------------------------------------------
 vim.g.RandomSchemeOnFileOpen = false
-vim.g.RandomSchemeOnStartup = false
+vim.g.RandomSchemeOnStartup = true
 
 -- backup scheme
 --vim.g.BackupColorschemeName = "github_dark_default"
