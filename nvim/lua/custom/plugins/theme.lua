@@ -1,5 +1,6 @@
 return {
 	{ 'gmist/vim-palette',    enabled = false, },
+	{'yorickpeterse/vim-paper'},
 
 	-- this is the one with the base16 colors
 	{ "bradcush/nvim-base16", enabled = false, },

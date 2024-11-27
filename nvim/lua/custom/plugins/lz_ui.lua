@@ -128,21 +128,11 @@ return {
 
 	{ "rcarriga/nvim-notify", enabled = false },
 
-	{ -- this plugin causes huge slowdown
-		"HiPhish/nvim-ts-rainbow2",
+	{
+		"HiPhish/rainbow-delimiters.nvim",
 		enabled = false,
-		config = function()
-			require('nvim-treesitter.configs').setup {
-				rainbow = {
-					enable = true,
-					-- list of languages you want to disable the plugin for
-					disable = { 'jsx', 'cpp' },
-					-- Which query to use for finding delimiters
-					query = 'rainbow-parens',
-					-- Highlight the entire buffer all at once
-					strategy = require('ts-rainbow').strategy.global,
-				}
-			}
+		config = function ()
+			require("rainbow-delimiters").setup()
 		end
 	},
 

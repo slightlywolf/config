@@ -13,7 +13,7 @@
 --
 require("helpers.funcs")
 
---vim.cmd.colorscheme("chocolate-contrast")
+vim.cmd.colorscheme("paper")
 --vim.cmd.colorscheme("slate")
 
 -- SETS A RANDOM COLORSCHEME
@@ -111,7 +111,7 @@ vim.o.cursorline = false
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = true
+-- vim.wo.relativenumber = true
 
 vim.o.colorcolumn = "88,120"
 -- vim.cmd [[highlight ColorColumn ctermbg=0 guibg=Black]]
