@@ -13,6 +13,8 @@ vim.g.RandomSchemeOnStartup = false
 -- vim.o.background = 'light'
 ---
 vim.g.have_nerd_font = false
+-- vim.o.statusline = " %F%m%r%h %w  CWD: %r%{getcwd()}%h   Line: %l  Column: %c"
+
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 -- uses nvim tree
