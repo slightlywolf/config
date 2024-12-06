@@ -98,7 +98,7 @@ set ai "Auto indent
 set si "Smart indent
 "set wrap "Wrap lines
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
