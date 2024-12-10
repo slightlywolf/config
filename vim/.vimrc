@@ -152,6 +152,11 @@ vnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 
+nnoremap <leader>P "+P
+
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " better indenting
 vnoremap < <gv
 vnoremap > >gv
