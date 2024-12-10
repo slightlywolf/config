@@ -143,7 +143,7 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 --vim.wo.signcolumn = 'number'
 --vim.wo.signcolumn = 'yes'
-vim.wo.signcolumn = 'no'
+vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
