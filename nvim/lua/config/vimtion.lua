@@ -13,7 +13,7 @@
 --
 require("helpers.funcs")
 
-vim.cmd.colorscheme("paper")
+vim.cmd.colorscheme("newpaper")
 --vim.cmd.colorscheme("slate")
 
 -- SETS A RANDOM COLORSCHEME
